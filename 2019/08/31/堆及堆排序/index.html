@@ -67,7 +67,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/31/堆及堆排序/小根堆.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/31/堆及堆排序/入树和入堆.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/31/堆及堆排序/flow.png">
-<meta property="og:updated_time" content="2019-08-24T03:34:23.290Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/31/堆及堆排序/heapify.png">
+<meta property="og:updated_time" content="2019-08-24T08:43:59.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆及堆排序">
 <meta name="twitter:description" content="堆与堆排序注意阅读本文前应掌握树的基本知识 堆的定义堆也称之为优先队列，根据其优先级细分为各种堆(队列)常见的堆有两种，一种叫大根堆，一种叫小根堆">
@@ -309,12 +310,9 @@
 <pre><code>(index - 1) / 2</code></pre><p>子节点的位置 :</p>
 <pre><code>左节点：(index * 2) + 1
 右节点：左节点 + 1</code></pre><p>下面来看看插入部分代码的实现</p>
-<pre><code>public static void heapInsert(int[] arr, int index) {
-    while(arr[index] &gt; arr[(index - 1) / 2]) { //
-        swap(arr,index,(index - 1) / 2);    //大于父节点就交换
-        index = (index - 1) / 2;//去到父节点，再检查检查
-    }
-}</code></pre><p>  <em>此处swap为交换数组中两值</em>  </p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> heapInsert(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> <span class="keyword">index</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span>(arr[<span class="keyword">index</span>] &gt; arr[(<span class="keyword">index</span> - <span class="number">1</span>) / <span class="number">2</span>]) &#123; <span class="comment">//</span></span><br><span class="line">        swap(arr,<span class="keyword">index</span>,(<span class="keyword">index</span> - <span class="number">1</span>) / <span class="number">2</span>);    <span class="comment">//大于父节点就交换</span></span><br><span class="line">        <span class="keyword">index</span> = (<span class="keyword">index</span> - <span class="number">1</span>) / <span class="number">2</span>;<span class="comment">//去到父节点，再检查检查</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <em>此处swap为交换数组中两值</em>  </p>
 <hr>
 <p>删除操作很简单这里就不写了，这里我们讲另一个重要的操作<em>heapify</em>。</p>
 <p>我们堆中的数值是可以变的，当我们把其中一个父节点变成小于其子节点的值，那么这将会破坏掉大根堆的性质，为了保持大根堆的性质，我们进行一个操作叫做<em>heapify</em></p>
@@ -322,29 +320,33 @@
 <p>当改变的节点的两个子节点均小于它的话，不用动</p>
 </blockquote>
 <blockquote>
-<p>当改变的节点小于子节点中较大的一个，则进行”下沉”，下沉是指</p>
+<p>当改变的节点小于子节点中较大的一个，则进行”下沉”，下沉是指把左右子树中的较大者与当前节点进行比较，若大于当前节点则两者交换，并且进入下一层进行检查</p>
+</blockquote>
+<img src="/2019/08/31/堆及堆排序/heapify.png" title="下沉">
+
+<blockquote>
+<p>heapify过程图解</p>
 </blockquote>
 <p>下面来看看heapify代码的实现</p>
-<pre><code>public static void heapify(int[] arr, int index, int heapSize) {
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> heapify(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> <span class="keyword">index</span>, <span class="keyword">int</span> heapSize) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> left = <span class="keyword">index</span> * <span class="number">2</span> + <span class="number">1</span>;<span class="comment">//右子树越界就等于不存在右子树</span></span><br><span class="line">    <span class="keyword">while</span>(left &lt; heapSize) &#123;<span class="comment">//左子树不越界</span></span><br><span class="line">        <span class="comment">//求左右子树中哪个较大</span></span><br><span class="line">        <span class="comment">//右子树不越界且大于左子树的话largest就是左子树的位置为较大者</span></span><br><span class="line">        <span class="keyword">int</span> largest = left + <span class="number">1</span> &lt; heapSize &amp;&amp; arr[left + <span class="number">1</span>] &gt; arr[left]</span><br><span class="line">                ? left + <span class="number">1</span> : left;</span><br><span class="line">        <span class="comment">//左右子树的最大值和当前节点的值谁大，返回较大者的下标</span></span><br><span class="line">        largest = arr[largest] &gt; arr[<span class="keyword">index</span>] ? largest : <span class="keyword">index</span>;</span><br><span class="line">        <span class="keyword">if</span>(largest == <span class="keyword">index</span>) &#123;<span class="comment">//当前节点是最大的，不用下沉</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//largest != index</span></span><br><span class="line">        swap(arr, largest, <span class="keyword">index</span>);<span class="comment">//下沉</span></span><br><span class="line">        <span class="comment">//继续检查是否需要下沉</span></span><br><span class="line">        <span class="keyword">index</span> = largest;</span><br><span class="line">        left = <span class="keyword">index</span> * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    int left = index * 2 + 1;//右子树越界就等于不存在右子树
-    while(left &lt; heapSize) {//左子树不越界
-        //求左右子树中哪个较大
-        //右子树不越界且大于左子树的话largest就是左子树的位置
-        int largest = left + 1 &lt; heapSize &amp;&amp; arr[left + 1] &gt; arr[left]
-                ? left + 1 : left;
-        //左右子树的最大值和当前节点的值谁大，返回较大者的下标
-        largest = arr[largest] &gt; arr[index] ? largest : index;
-        if(largest == index) {//当前节点是最大的，不用下沉
-            break;
-        }
-        //largest != index
-        swap(arr, largest, index);//下沉
-        //继续检查是否需要下沉
-        index = largest;
-        left = index * 2 + 1;
-    }
-}</code></pre>
+<p><em>可能会有兄弟萌问：为什么要用heapSize这个变量啊，我直接arr.length作为控制越界的变量不就行了，答曰：这里是为堆排序埋下伏笔。</em></p>
+<hr>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>有了前面对堆的了解我们就可以开始学习堆排序了</p>
+<p>堆排序的思路：</p>
+<pre><code>把数放进大根堆中，然后把堆顶和堆底的值进行交换（这样最大值在最后辣）。这时候heapSize就有用了，heapSize-1 这样最后一个元素就不会在动了，然后用heapify把堆调整回一个大根堆，继续进行上面的操作直至heapSize == 0 即可。</code></pre>{% asset_img heapSort.png heapSort %}
+
+<blockquote>
+<p>heapSort过程图解</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; arr.length; i++) &#123;</span><br><span class="line">            heapInsert(arr,i);<span class="comment">//把数组进入大根堆</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> heapSize = arr.length;</span><br><span class="line">        swap(arr,<span class="number">0</span>, --heapSize);    <span class="comment">//为什么这里是--heapSize呢，因为heapSize == arr.length，默认数组是0到heapSize - 1的</span></span><br><span class="line">        <span class="keyword">while</span>(heapSize &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            heapify(arr,<span class="number">0</span>,heapSize);<span class="comment">//重新整理为大根堆</span></span><br><span class="line">            swap(arr, <span class="number">0</span>, --heapSize);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入的时间复杂度:O(logN)</p>
+<pre><code>因为在插入的时候你只需要不断的和父节点比较就行了，不用管其他节点，而且是完全二叉树，只需要树的高度的次数就行了
+那么插入N次就需要：log1 + log2 + log3 + ... + logN-1
+因此建立一个大根堆的时间复杂度是O(N)</code></pre><p>稳定性：</p>
+<pre><code>不稳定，很简单可以想象到，堆顶的值和其子节点是相等的，而堆顶和堆底进行交换后，堆顶的值就去到最后了，和它相同的值与其的先后顺序改变了</code></pre><h3 id="本章完结"><a href="#本章完结" class="headerlink" title="本章完结~"></a>本章完结~</h3>
     </div>
 
     
@@ -469,7 +471,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#堆与堆排序"><span class="nav-number">1.</span> <span class="nav-text">堆与堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆的定义"><span class="nav-number">1.1.</span> <span class="nav-text">堆的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆的实现"><span class="nav-number">1.2.</span> <span class="nav-text">堆的实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#堆与堆排序"><span class="nav-number">1.</span> <span class="nav-text">堆与堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆的定义"><span class="nav-number">1.1.</span> <span class="nav-text">堆的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆的实现"><span class="nav-number">1.2.</span> <span class="nav-text">堆的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">1.3.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本章完结"><span class="nav-number">1.3.1.</span> <span class="nav-text">本章完结~</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
