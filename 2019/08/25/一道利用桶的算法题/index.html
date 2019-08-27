@@ -55,19 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
+  <meta name="description" content="题目 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
+<meta name="keywords" content="算法题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一道利用桶的算法题">
 <meta property="og:url" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
+<meta property="og:description" content="题目 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/MaxGap.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/CounterExample.png">
-<meta property="og:updated_time" content="2019-08-27T08:33:10.359Z">
+<meta property="og:updated_time" content="2019-08-27T13:48:40.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道利用桶的算法题">
-<meta name="twitter:description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
+<meta name="twitter:description" content="题目 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
 <meta name="twitter:image" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/MaxGap.png">
   <link rel="canonical" href="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/">
 
@@ -268,14 +269,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><blockquote>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
 <p>给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序</p>
 </blockquote>
-<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p>原数组：{4，3，9，6}</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>原数组：{4，3，9，6}</p>
 <p>排序后数组：{3，4，6，9}<br>，则相邻两数最大差值为9 - 6 = 3</p>
 <a id="more"></a>
 
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>1.设数组中有N个数,则准备N+1个桶，每个桶对应一个范围（<em>这个范围稍后说明</em>）,桶中存放对应范围内的最大值和最小值，以及一个判断是否为空桶的标记</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.设数组中有N个数,则准备N+1个桶，每个桶对应一个范围（<em>这个范围稍后说明</em>）,桶中存放对应范围内的最大值和最小值，以及一个判断是否为空桶的标记</p>
 <p>2.遍历整个数组找到整个数组的min和max分别放入0号桶和N号桶，若max == min 则return 0</p>
 <p>3.把min到max的范围等分为N份，而原数组中的值属于哪个范围就放在哪个桶中</p>
 <img src="/2019/08/25/一道利用桶的算法题/MaxGap.png" title="图例">
@@ -283,7 +284,7 @@
 <blockquote>
 <p>我们有N个数和N+1个桶，由此可以推出至少会存在一个空桶，下面来说说空桶的意义。</p>
 </blockquote>
-<h4 id="空桶的意义："><a href="#空桶的意义：" class="headerlink" title="空桶的意义："></a>空桶的意义：</h4><blockquote>
+<h4 id="空桶的意义"><a href="#空桶的意义" class="headerlink" title="空桶的意义"></a>空桶的意义</h4><blockquote>
 <p>空桶的左右两侧迟早会有非空的桶，而这两个非空桶之间的差值必然是大于一个桶的范围的，这样我们就可以<em>排除</em>同一个桶内的差值为最大差值的<em>情况</em>了。<br>换句话说，最大差值肯定比一个桶的范围大了，那你讨论一个桶内有什么意义呢</p>
 </blockquote>
 <p>回想前面，我们只需要存放对应范围内的最大值和最小值到一个桶中即可，就是因为最大差值必然是在两个相邻的非空桶之间的，我们只需要计算两个相邻的非空桶之间（中间允许有空桶）的最大值和最小值的差，那些情况才有可能是最大差值。</p>
@@ -302,6 +303,15 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法题/" rel="tag"># 算法题</a>
+            
+          </div>
+        
 
         
 
@@ -318,8 +328,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
-                  堆及堆排序 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/27/定义一个能获取最小值的栈/" rel="prev" title="定义一个能获取最小值的栈">
+                  定义一个能获取最小值的栈 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -377,7 +387,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -409,7 +419,9 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -430,7 +442,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例："><span class="nav-number">2.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空桶的意义："><span class="nav-number">3.0.1.</span> <span class="nav-text">空桶的意义：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空桶的意义"><span class="nav-number">3.0.1.</span> <span class="nav-text">空桶的意义</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

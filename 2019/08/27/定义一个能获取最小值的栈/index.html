@@ -55,20 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
+  <meta name="description" content="题目 实现一个特殊的栈,在基本栈的基础上,增加返回栈中最小元素的方法,要求时间复杂度为O(1)  示例stack:{4,3,9,6} getMin() return 3;">
+<meta name="keywords" content="算法题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图解tcp&#x2F;ip:其一">
-<meta property="og:url" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/index.html">
+<meta property="og:title" content="定义一个能获取最小值的栈">
+<meta property="og:url" content="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
+<meta property="og:description" content="题目 实现一个特殊的栈,在基本栈的基础上,增加返回栈中最小元素的方法,要求时间复杂度为O(1)  示例stack:{4,3,9,6} getMin() return 3;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/osi.png">
-<meta property="og:updated_time" content="2019-08-27T11:10:40.034Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/MinStack1.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/MinStack2.png">
+<meta property="og:updated_time" content="2019-08-27T13:48:42.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图解tcp&#x2F;ip:其一">
-<meta name="twitter:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
-<meta name="twitter:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/osi.png">
-  <link rel="canonical" href="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/">
+<meta name="twitter:title" content="定义一个能获取最小值的栈">
+<meta name="twitter:description" content="题目 实现一个特殊的栈,在基本栈的基础上,增加返回栈中最小元素的方法,要求时间复杂度为O(1)  示例stack:{4,3,9,6} getMin() return 3;">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/MinStack1.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/">
 
 
 <script id="page-configurations">
@@ -82,7 +84,7 @@
   };
 </script>
 
-  <title>图解tcp/ip:其一 | 彪码野郎</title>
+  <title>定义一个能获取最小值的栈 | 彪码野郎</title>
   
 
 
@@ -208,7 +210,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/27/定义一个能获取最小值的栈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -222,7 +224,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">图解tcp/ip:其一
+          <h1 class="post-title" itemprop="name headline">定义一个能获取最小值的栈
 
             
           </h1>
@@ -239,7 +241,7 @@
                 
               
 
-              <time title="创建时间：2019-08-24 21:05:14" itemprop="dateCreated datePublished" datetime="2019-08-24T21:05:14+08:00">2019-08-24</time>
+              <time title="创建时间：2019-08-27 19:09:29" itemprop="dateCreated datePublished" datetime="2019-08-27T19:09:29+08:00">2019-08-27</time>
             </span>
           
             <span class="post-meta-item">
@@ -248,7 +250,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -267,13 +269,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>此为《图解TCP/IP》的粗略笔记</em></p>
-<h2 id="网络的分类"><a href="#网络的分类" class="headerlink" title="网络的分类"></a>网络的分类</h2><p>计算机网路，根据其规模可分为</p>
-<pre><code>WAN（Wide Area Network，广域网）
-LAN（Local Area Network, 局域网）
-MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
-<h2 id="通信协议的分层与OSI参考模型"><a href="#通信协议的分层与OSI参考模型" class="headerlink" title="通信协议的分层与OSI参考模型"></a>通信协议的分层与OSI参考模型</h2><img src="/2019/08/24/图解tcp-ip-其一/osi.png" title="osi参考模型的作用">
-
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>实现一个特殊的栈,在基本栈的基础上,增加返回栈中最小元素的方法,要求时间复杂度为O(1)</p>
+</blockquote>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>stack:{4,3,9,6}</p>
+<p>getMin() return 3;</p>
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>有的兄弟萌一开始可能会想直接在push的时候用一个全局变量记录最小值，但仔细想想，在没有pop的情况下是没有问题的，一旦pop了最小值就可能随之改变，如果单用一个变量时无法记录”之前”的最小值的。所以我们有了下面的思路</p>
+<blockquote>
+<p>1.我们有两个栈，一个用于存放数据，一个用于存放最小值，每当要存数据，两个栈都进行更新（入栈）</p>
+</blockquote>
+<blockquote>
+<p>2.若最小值栈的栈顶小于新的数据，则最小值栈重复存入其栈顶的值</p>
+</blockquote>
+<blockquote>
+<p>3.若最小值栈的栈顶大于新的数据，则最小值栈存入新的数据</p>
+</blockquote>
+<blockquote>
+<p>4.当pop时两个栈同时pop，即可保证最小值栈中存放的是当前数据栈中存在的数据</p>
+</blockquote>
+<img src="/2019/08/27/定义一个能获取最小值的栈/MinStack1.png" title="示例1">
+<blockquote>
+<p>push过程</p>
+</blockquote>
+<img src="/2019/08/27/定义一个能获取最小值的栈/MinStack2.png" title="示例2">
+<blockquote>
+<p>push过程</p>
+</blockquote>
+<p>下面看下实际代码</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Stack&lt;Integer&gt; DataStack;</span><br><span class="line">        <span class="keyword">private</span> Stack&lt;Integer&gt; MinsStack;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> MinStack() &#123;</span><br><span class="line">            <span class="built_in">this</span>.DataStack = <span class="keyword">new</span> <span class="type">Stack</span>&lt;&gt;();</span><br><span class="line">            <span class="built_in">this</span>.MinsStack = <span class="keyword">new</span> <span class="type">Stack</span>&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> void push(int <span class="keyword">new</span><span class="type">Num</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">this</span>.MinsStack.isEmpty()) &#123;</span><br><span class="line">                <span class="built_in">this</span>.MinsStack.push(<span class="keyword">new</span><span class="type">Num</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">this</span>.getMin() &gt; <span class="keyword">new</span><span class="type">Num</span>) &#123;   <span class="comment">//小于当前最小值</span></span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;    <span class="comment">//大于当前最小值</span></span><br><span class="line">                int <span class="keyword">new</span><span class="type">Min</span> =<span class="built_in">this</span>.MinsStack.peek();</span><br><span class="line">                <span class="built_in">this</span>.MinsStack.push(<span class="keyword">new</span><span class="type">Min</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.DataStack.push(<span class="keyword">new</span><span class="type">Num</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> int pop() &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">this</span>.DataStack.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">IllegalArgumentException</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.MinsStack.pop();</span><br><span class="line">            <span class="keyword">return</span> DataStack.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> int getMin() &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">this</span>.MinsStack.isEmpty())</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">IllegalArgumentException</span>();</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.MinsStack.peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -283,11 +307,24 @@ MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法题/" rel="tag"># 算法题</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/25/一道利用桶的算法题/" rel="next" title="一道利用桶的算法题">
+                  <i class="fa fa-chevron-left"></i> 一道利用桶的算法题
+                </a>
               
             </div>
 
@@ -295,8 +332,8 @@ MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/25/一道利用桶的算法题/" rel="prev" title="一道利用桶的算法题">
-                  一道利用桶的算法题 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
+                  堆及堆排序 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -409,7 +446,7 @@ MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络的分类"><span class="nav-number">1.</span> <span class="nav-text">网络的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信协议的分层与OSI参考模型"><span class="nav-number">2.</span> <span class="nav-text">通信协议的分层与OSI参考模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li></ol></div>
             
 
           </div>
