@@ -55,28 +55,35 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="彪码野郎">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3 思路：1.设数组中有N个数,则准备N+1个桶，每个桶对应一个范围（这个范围稍后说明）,桶中存放对应范围内的最大值和最小值，以及一个判断是否为空桶的标记 2.遍历整个数组找到整个数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一道利用桶的算法题">
+<meta property="og:url" content="http://yoursite.com/2019/08/25/一道利用桶的算法题/index.html">
 <meta property="og:site_name" content="彪码野郎">
+<meta property="og:description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3 思路：1.设数组中有N个数,则准备N+1个桶，每个桶对应一个范围（这个范围稍后说明）,桶中存放对应范围内的最大值和最小值，以及一个判断是否为空桶的标记 2.遍历整个数组找到整个数组">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/25/一道利用桶的算法题/MaxGap.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/25/一道利用桶的算法题/CounterExample.png">
+<meta property="og:updated_time" content="2019-08-27T07:44:14.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="彪码野郎">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="一道利用桶的算法题">
+<meta name="twitter:description" content="题目: 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例：原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3 思路：1.设数组中有N个数,则准备N+1个桶，每个桶对应一个范围（这个范围稍后说明）,桶中存放对应范围内的最大值和最小值，以及一个判断是否为空桶的标记 2.遍历整个数组找到整个数组">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/25/一道利用桶的算法题/MaxGap.png">
+  <link rel="canonical" href="http://yoursite.com/2019/08/25/一道利用桶的算法题/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>彪码野郎</title>
+  <title>一道利用桶的算法题 | 彪码野郎</title>
   
 
 
@@ -191,106 +198,11 @@
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-home">
+          <div id="content" class="content page-post-detail">
             
-  <section id="posts" class="posts-expand">
-      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/堆及堆排序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/31/堆及堆排序/" class="post-title-link" itemprop="url">堆及堆排序</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-31 22:04:11" itemprop="dateCreated datePublished" datetime="2019-08-31T22:04:11+08:00">2019-08-31</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
+  <div id="posts" class="posts-expand">
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="堆与堆排序"><a href="#堆与堆排序" class="headerlink" title="堆与堆排序"></a>堆与堆排序</h1><p><em>注意阅读本文前应掌握<a href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/7773232?fr=aladdin" target="_blank" rel="noopener">树的基本知识</a></em></p>
-<h2 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h2><p>堆也称之为优先队列，根据其优先级细分为各种堆(队列)<br>常见的堆有两种，一种叫<em>大根堆<em>，一种叫</em>小根堆</em></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/31/堆及堆排序/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -311,9 +223,8 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/25/一道利用桶的算法题/" class="post-title-link" itemprop="url">一道利用桶的算法题</a>
+          <h1 class="post-title" itemprop="name headline">一道利用桶的算法题
+
             
           </h1>
         
@@ -344,8 +255,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><blockquote>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><blockquote>
 <p>给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序</p>
 </blockquote>
 <h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p>原数组：{4，3，9，6}</p>
@@ -368,121 +278,47 @@
 
 <p>下面来看下实际代码：</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> maxGap(<span class="built_in">int</span> [] nums) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//0 1 2 3</span></span><br><span class="line">        <span class="built_in">int</span> len = nums.length;</span><br><span class="line">        <span class="comment">//这里并不知道第一个值有多小，所以找个一定比它大的值，这样第一个值就作为min了，max同理</span></span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">min</span> = Integer.MAX_VALUE;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">max</span> = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="built_in">min</span> = Math.<span class="built_in">min</span>(<span class="built_in">min</span>, nums[i]);</span><br><span class="line">            <span class="built_in">max</span> = Math.<span class="built_in">max</span>(<span class="built_in">max</span>, nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">min</span> == <span class="built_in">max</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//每个桶都有这三种信息</span></span><br><span class="line">        <span class="built_in">boolean</span>[] hasNum = <span class="keyword">new</span> <span class="built_in">boolean</span>[len + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">int</span> [] maxs = <span class="keyword">new</span> <span class="built_in">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">int</span> [] mins = <span class="keyword">new</span> <span class="built_in">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">int</span> bid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">//bid表示当前值要进入哪个桶的下标</span></span><br><span class="line">            bid = bucket(nums[i] , len, <span class="built_in">min</span>, <span class="built_in">max</span>);</span><br><span class="line">            mins[bid] = hasNum[bid] ? Math.<span class="built_in">min</span>(mins[bid], nums[i]) : nums[i];</span><br><span class="line">            maxs[bid] = hasNum[bid] ? Math.<span class="built_in">max</span>(maxs[bid], nums[i]) : nums[i];</span><br><span class="line">            hasNum[bid] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">int</span> res = <span class="number">0</span>;;</span><br><span class="line">        <span class="built_in">int</span> lastMax = maxs[<span class="number">0</span>];<span class="comment">//前一个最大值</span></span><br><span class="line">        <span class="built_in">int</span> i = <span class="number">1</span>;<span class="comment">//前一个是0，所以后一个从1开始</span></span><br><span class="line">        <span class="keyword">for</span>(; i &lt;= len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(hasNum[i]) &#123;</span><br><span class="line">                res = Math.<span class="built_in">max</span>(res, mins[i] - lastMax);<span class="comment">//后一个的最小值 减 前一个的最大值</span></span><br><span class="line">                lastMax = maxs[i];<span class="comment">//等下会i++，所以要先记录前一个的最大值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//给定一个数num，在min到max的范围内分为len个桶（这样我们才必定有一个空桶），那么num应该在哪个空间</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> bucket(<span class="keyword">long</span> num, <span class="keyword">long</span> len, <span class="keyword">long</span> <span class="built_in">min</span>, <span class="keyword">long</span> <span class="built_in">max</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">int</span>) ((num - <span class="built_in">min</span>) * len / (<span class="built_in">max</span> - <span class="built_in">min</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/24/图解tcp-ip-其一/" rel="next" title="图解tcp/ip:其一">
+                  <i class="fa fa-chevron-left"></i> 图解tcp/ip:其一
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
+                  堆及堆排序 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/图解tcp-ip-其一/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/24/图解tcp-ip-其一/" class="post-title-link" itemprop="url">图解tcp/ip:其一</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-24 21:05:14" itemprop="dateCreated datePublished" datetime="2019-08-24T21:05:14+08:00">2019-08-24</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p><em>此为《图解TCP/IP》的粗略笔记</em></p>
-<h2 id="网络的分类"><a href="#网络的分类" class="headerlink" title="网络的分类"></a>网络的分类</h2><p>计算机网路，根据其规模可分为</p>
-<pre><code>WAN（Wide Area Network，广域网）
-LAN（Local Area Network, 局域网）
-MAN（Metropolitan Area Network,城域网）</code></pre><h2 id="通信协议的分层与OSI参考模型"><a href="#通信协议的分层与OSI参考模型" class="headerlink" title="通信协议的分层与OSI参考模型"></a>通信协议的分层与OSI参考模型</h2><img src="/2019/08/24/图解tcp-ip-其一/OSI各层作用.png" title="osi参考模型的作用">
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -501,8 +337,17 @@ MAN（Metropolitan Area Network,城域网）</code></pre><h2 id="通信协议的
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -560,6 +405,23 @@ MAN（Metropolitan Area Network,城域网）</code></pre><h2 id="通信协议的
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例："><span class="nav-number">2.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空桶的意义："><span class="nav-number">3.0.1.</span> <span class="nav-text">空桶的意义：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -657,5 +519,9 @@ MAN（Metropolitan Area Network,城域网）</code></pre><h2 id="通信协议的
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 </body>
 </html>
