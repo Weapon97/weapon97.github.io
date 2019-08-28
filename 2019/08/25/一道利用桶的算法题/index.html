@@ -56,7 +56,7 @@
 </script>
 
   <meta name="description" content="题目 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
-<meta name="keywords" content="算法题">
+<meta name="keywords" content="面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一道利用桶的算法题">
 <meta property="og:url" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/index.html">
@@ -65,7 +65,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/MaxGap.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/25/一道利用桶的算法题/CounterExample.png">
-<meta property="og:updated_time" content="2019-08-27T13:48:40.879Z">
+<meta property="og:updated_time" content="2019-08-28T08:43:39.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道利用桶的算法题">
 <meta name="twitter:description" content="题目 给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N),且要求不能用非基于比较的排序  示例原数组：{4，3，9，6} 排序后数组：{3，4，6，9}，则相邻两数最大差值为9 - 6 = 3">
@@ -259,6 +259,14 @@
           
 
           
+            <span id="/2019/08/25/一道利用桶的算法题/" class="post-meta-item leancloud_visitors" data-flag-title="一道利用桶的算法题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -308,7 +316,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/算法题/" rel="tag"># 算法题</a>
+              <a href="/tags/面试题/" rel="tag"># 面试题</a>
             
           </div>
         
@@ -421,7 +429,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -515,6 +525,100 @@
 
 
 
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=VVGO15ghlOeN9BAPuduVn990-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'VVGO15ghlOeN9BAPuduVn990-gzGzoHsz',
+            'X-LC-Key': 'VpDSWuIjeD6ejvuEGncVBuH5',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
 
 
 

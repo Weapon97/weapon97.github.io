@@ -251,6 +251,14 @@
           
 
           
+            <span id="/2019/08/31/堆及堆排序/" class="post-meta-item leancloud_visitors" data-flag-title="堆及堆排序" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -347,6 +355,14 @@
           
 
           
+            <span id="/2019/08/28/经典老番-猫狗队列/" class="post-meta-item leancloud_visitors" data-flag-title="经典老番:猫狗队列" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -357,8 +373,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
 <p>实现一种猫狗队列的结构，要求如下： </p>
 </blockquote>
 <ol>
@@ -368,30 +383,16 @@
 </li>
 <li><p>用户可以调用pollDog方法，将队列中dog类的实例按照队列的先后顺序依次弹出；</p>
 </li>
-<li><p>用户可以调用pollCat方法，将队列中cat类的实例按照队列的先后顺序依次弹出；</p>
-</li>
-<li><p>用户可以调用isEmpty方法，检查队列中是否还有dog和cat的实例；</p>
-</li>
-<li><p>用户可以调用isDogEmpty方法，检查队列中是否还有do的实例；</p>
-</li>
-<li><p>用户可以调用isCatEmpty方法，检查队列中是否还有cat的实例。</p>
-</li>
 </ol>
-<p>给定猫狗类如下：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static <span class="class"><span class="keyword">class</span> <span class="title">Pet</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">String</span> <span class="class"><span class="keyword">type</span></span>;</span><br><span class="line"></span><br><span class="line">        public <span class="type">Pet</span>(<span class="type">String</span> <span class="class"><span class="keyword">type</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.<span class="keyword">type</span> = <span class="class"><span class="keyword">type</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">        public <span class="type">String</span> getPetTyoe() &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">type</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Pet</span></span>&#123;</span><br><span class="line">        public <span class="type">Cat</span>() &#123;</span><br><span class="line">            <span class="keyword">super</span>(<span class="string">"cat"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Pet</span> </span>&#123;</span><br><span class="line">        public <span class="type">Dog</span>() &#123;</span><br><span class="line">            <span class="keyword">super</span>(<span class="string">"dog"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始我脑子一热，想用三个队列，分别存储dog，cat和All，但想了一下在pollCat或者Dog时，All的队列并不能确定其队头是否为该项。<br>如图所示</p>
-<img src="/2019/08/28/经典老番-猫狗队列/ErrorConcept.png" title="错误思路">
-
-<p>这让我们意识到需要为Dog和Cat做一个标识，便于分辨其先后顺序,这样只需要两个队列就可以完成该操作。由于我们无法修改Dog和Cat这两个类，所以我们自己封装一个类</p>
-<img src="/2019/08/28/经典老番-猫狗队列/thinking.png" title="正确思路">
-
-<p>下面来看下实际代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Pet</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pet</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPetType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Pet</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"cat"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Pet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"dog"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//封装count和pet</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">PetEnter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Pet pet;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">long</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PetEnter</span><span class="params">(Pet pet, <span class="keyword">long</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.pet = pet;</span><br><span class="line">        <span class="keyword">this</span>.count = count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Pet <span class="title">getPet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.pet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.pet.getPetType();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CatDogQueue</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;PetEnter&gt; catQueue;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;PetEnter&gt; dogQueue;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CatDogQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.catQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">this</span>.dogQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">this</span>.count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Pet pet)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pet.getPetType().equals(<span class="string">"dog"</span>)) &#123;</span><br><span class="line">            dogQueue.add(<span class="keyword">new</span> PetEnter(pet,<span class="keyword">this</span>.count++));</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(pet.getPetType().equals(<span class="string">"cat"</span>)) &#123;</span><br><span class="line">            catQueue.add(<span class="keyword">new</span> PetEnter(pet,<span class="keyword">this</span>.count++));</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"not dog or cat"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Pet <span class="title">pollAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.dogQueue.isEmpty() &amp;&amp; !<span class="keyword">this</span>.catQueue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.dogQueue.peek().count &lt; <span class="keyword">this</span>.catQueue.peek().count) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.dogQueue.poll().getPet();</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.catQueue.poll().getPet();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(!<span class="keyword">this</span>.dogQueue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.dogQueue.poll().getPet();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(!<span class="keyword">this</span>.catQueue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.catQueue.poll().getPet();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"queue is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Dog <span class="title">pollDog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.isDogQueueEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> (Dog) dogQueue.poll().getPet();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"dog queue is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Cat <span class="title">pollCat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.isCatQueueEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> (Cat) catQueue.poll().getPet();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"cat queue is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDogQueueEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dogQueue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCatQueueEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> catQueue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码很简单，在此就不做过多的解释了。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/28/经典老番-猫狗队列/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -466,6 +467,14 @@
             </span>
           
 
+          
+            <span id="/2019/08/27/定义一个能获取最小值的栈/" class="post-meta-item leancloud_visitors" data-flag-title="定义一个能获取最小值的栈" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
           
 
         </div>
@@ -566,6 +575,14 @@
           
 
           
+            <span id="/2019/08/25/一道利用桶的算法题/" class="post-meta-item leancloud_visitors" data-flag-title="一道利用桶的算法题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -664,6 +681,14 @@
             </span>
           
 
+          
+            <span id="/2019/08/24/图解tcp-ip-其一/" class="post-meta-item leancloud_visitors" data-flag-title="图解tcp/ip:其一" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
           
 
         </div>
@@ -778,7 +803,9 @@ MAN（Metropolitan Area Network,城域网）</code></pre>
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -855,6 +882,100 @@ MAN（Metropolitan Area Network,城域网）</code></pre>
 
 
 
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=VVGO15ghlOeN9BAPuduVn990-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'VVGO15ghlOeN9BAPuduVn990-gzGzoHsz',
+            'X-LC-Key': 'VpDSWuIjeD6ejvuEGncVBuH5',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
 
 
 
