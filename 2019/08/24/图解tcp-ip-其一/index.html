@@ -55,18 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
+  <meta name="description" content="此为《图解TCP/IP》的粗略笔记 网络的分类 P3计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解tcp&#x2F;ip:其一">
 <meta property="og:url" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
+<meta property="og:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类 P3计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/osi.png">
-<meta property="og:updated_time" content="2019-08-27T11:10:40.034Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/数据链路层与网络层的区别.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/分组交换.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/电路交换和分组交换.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/接收端分类.png">
+<meta property="og:updated_time" content="2019-08-29T14:53:30.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解tcp&#x2F;ip:其一">
-<meta name="twitter:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
+<meta name="twitter:description" content="此为《图解TCP/IP》的粗略笔记 网络的分类 P3计算机网路，根据其规模可分为 WAN（Wide Area Network，广域网） LAN（Local Area Network, 局域网） MAN（Metropolitan Area Network,城域网）">
 <meta name="twitter:image" content="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/osi.png">
   <link rel="canonical" href="https://weapon97.github.io/2019/08/24/图解tcp-ip-其一/">
 
@@ -276,12 +280,41 @@
 
       
         <p><em>此为《图解TCP/IP》的粗略笔记</em></p>
-<h2 id="网络的分类"><a href="#网络的分类" class="headerlink" title="网络的分类"></a>网络的分类</h2><p>计算机网路，根据其规模可分为</p>
+<h2 id="网络的分类-P3"><a href="#网络的分类-P3" class="headerlink" title="网络的分类 P3"></a>网络的分类 P3</h2><p>计算机网路，根据其规模可分为</p>
 <pre><code>WAN（Wide Area Network，广域网）
 LAN（Local Area Network, 局域网）
 MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
-<h2 id="通信协议的分层与OSI参考模型"><a href="#通信协议的分层与OSI参考模型" class="headerlink" title="通信协议的分层与OSI参考模型"></a>通信协议的分层与OSI参考模型</h2><img src="/2019/08/24/图解tcp-ip-其一/osi.png" title="osi参考模型的作用">
+<h2 id="通信协议的分层与OSI参考模型-P24"><a href="#通信协议的分层与OSI参考模型-P24" class="headerlink" title="通信协议的分层与OSI参考模型 P24"></a>通信协议的分层与OSI参考模型 P24</h2><img src="/2019/08/24/图解tcp-ip-其一/osi.png" title="osi参考模型的作用">
 
+<p>应用层：为应用程序提供服务并规定应用程序中通信相关的细节，如文件传输、电子邮件等协议</p>
+<p>表示层：把不同计算机的数据转化为统一的网络传输格式</p>
+<p>会话层:决定用什么连接方式进行连接发送</p>
+<p>传输层：负责管理连接，进行建立连接或断开连接的处理（两主机之间创建逻辑通信连接），重发和保证数据的可靠性</p>
+<blockquote>
+<p>此处应注意，会话层时决定建立连接和断开连接的时机，而传输层是进行实际的建立和断开操作的</p>
+</blockquote>
+<p>网络层：将数据从发送端的主机发送到接收端的主机，寻址和选择路由</p>
+<p>数据链路层：负责每一个区间内的通信</p>
+<img src="/2019/08/24/图解tcp-ip-其一/数据链路层与网络层的区别.png" title="区别">
+
+<blockquote>
+<p>网络层是将整个数据发送给最总目标地址的，而数据链路层只负责发送一个分段内的数据</p>
+</blockquote>
+<p>物理层：将数据的0和1转换为电压和脉冲光传输给物理介质，通过相互直连的设备的MAC地址实现传输。</p>
+<h2 id="传输方式的分类-P29"><a href="#传输方式的分类-P29" class="headerlink" title="传输方式的分类 P29"></a>传输方式的分类 P29</h2><p>网络通信根据其数据发送方式有多种分类。下面介绍其中几种</p>
+<h3 id="面向有连接型和面向无连接型"><a href="#面向有连接型和面向无连接型" class="headerlink" title="面向有连接型和面向无连接型"></a>面向有连接型和面向无连接型</h3><p>面向无连接型：不需要建立和断开连接。发送端可任意时刻发送数据，反之，接收端也不知道自己会何时何地收到数据。因此，在面向无连接的情况下，接收端需要时常确认是否收到了数据。<br>常见的有以太网、IP、UDP等协议</p>
+<p>面向有连接型：在发送数据前，在收发主机之间连接一条通信线路。<br>常见的有ATM、帧中继、TCP协议</p>
+<h3 id="电路交换和分组交换"><a href="#电路交换和分组交换" class="headerlink" title="电路交换和分组交换"></a>电路交换和分组交换</h3><p>电路交换是比较久远的技术了，而分组交换是较新的通信方式,其中TCP/IP则是采用了分组交换技术。</p>
+<p>看图理解一下即可，如有兴趣可以百度看一下</p>
+<img src="/2019/08/24/图解tcp-ip-其一/分组交换.png">
+<blockquote>
+<p>分组交换</p>
+</blockquote>
+<img src="/2019/08/24/图解tcp-ip-其一/电路交换和分组交换.png">
+<blockquote>
+<p>电路交换和分组交换</p>
+</blockquote>
+<h3 id="根据接受端分类"><a href="#根据接受端分类" class="headerlink" title="根据接受端分类"></a>根据接受端分类</h3><img src="/2019/08/24/图解tcp-ip-其一/接收端分类.png">
     </div>
 
     
@@ -362,7 +395,7 @@ MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -419,7 +452,7 @@ MAN（Metropolitan Area Network,城域网）</code></pre><a id="more"></a>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络的分类"><span class="nav-number">1.</span> <span class="nav-text">网络的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信协议的分层与OSI参考模型"><span class="nav-number">2.</span> <span class="nav-text">通信协议的分层与OSI参考模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络的分类-P3"><span class="nav-number">1.</span> <span class="nav-text">网络的分类 P3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信协议的分层与OSI参考模型-P24"><span class="nav-number">2.</span> <span class="nav-text">通信协议的分层与OSI参考模型 P24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输方式的分类-P29"><span class="nav-number">3.</span> <span class="nav-text">传输方式的分类 P29</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向有连接型和面向无连接型"><span class="nav-number">3.1.</span> <span class="nav-text">面向有连接型和面向无连接型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电路交换和分组交换"><span class="nav-number">3.2.</span> <span class="nav-text">电路交换和分组交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据接受端分类"><span class="nav-number">3.3.</span> <span class="nav-text">根据接受端分类</span></a></li></ol></li></ol></div>
             
 
           </div>
