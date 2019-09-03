@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="i am rotate">
+  <meta name="description" content="sql系列文章为学习极客时间的”sql必知必会”这一课程的知识总结，此篇对应的课程是01-03，快速阅读即可 简介我们常说的SQL是一种语言，而mysql、Oracle这些则是数据库管理系统(下面简称为DBMS),SQL是我们与DBMS交互的语言，对于不同的DMBS会按照指定的SQL执行操作。 SQL有两个重要的标准，SQL92和SQL99，分别是92年和99年发布的SQL标准。现在常用的SQL语">
 <meta property="og:type" content="article">
-<meta property="og:title" content="输出旋转90°后的矩阵">
-<meta property="og:url" content="https://weapon97.github.io/2019/08/29/输出旋转90°后的矩阵/index.html">
+<meta property="og:title" content="sql篇其一">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/03/sql篇其一/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="i am rotate">
+<meta property="og:description" content="sql系列文章为学习极客时间的”sql必知必会”这一课程的知识总结，此篇对应的课程是01-03，快速阅读即可 简介我们常说的SQL是一种语言，而mysql、Oracle这些则是数据库管理系统(下面简称为DBMS),SQL是我们与DBMS交互的语言，对于不同的DMBS会按照指定的SQL执行操作。 SQL有两个重要的标准，SQL92和SQL99，分别是92年和99年发布的SQL标准。现在常用的SQL语">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T06:12:32.562Z">
+<meta property="og:updated_time" content="2019-09-03T09:04:24.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="输出旋转90°后的矩阵">
-<meta name="twitter:description" content="i am rotate">
-  <link rel="canonical" href="https://weapon97.github.io/2019/08/29/输出旋转90°后的矩阵/">
+<meta name="twitter:title" content="sql篇其一">
+<meta name="twitter:description" content="sql系列文章为学习极客时间的”sql必知必会”这一课程的知识总结，此篇对应的课程是01-03，快速阅读即可 简介我们常说的SQL是一种语言，而mysql、Oracle这些则是数据库管理系统(下面简称为DBMS),SQL是我们与DBMS交互的语言，对于不同的DMBS会按照指定的SQL执行操作。 SQL有两个重要的标准，SQL92和SQL99，分别是92年和99年发布的SQL标准。现在常用的SQL语">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/03/sql篇其一/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>输出旋转90°后的矩阵 | 彪码野郎</title>
+  <title>sql篇其一 | 彪码野郎</title>
   
 
 
@@ -206,7 +206,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/29/输出旋转90°后的矩阵/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/03/sql篇其一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -220,7 +220,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">输出旋转90°后的矩阵
+          <h1 class="post-title" itemprop="name headline">sql篇其一
 
             
           </h1>
@@ -237,12 +237,12 @@
                 
               
 
-              <time title="创建时间：2019-08-29 14:12:14" itemprop="dateCreated datePublished" datetime="2019-08-29T14:12:14+08:00">2019-08-29</time>
+              <time title="创建时间：2019-09-03 15:47:35" itemprop="dateCreated datePublished" datetime="2019-09-03T15:47:35+08:00">2019-09-03</time>
             </span>
           
 
           
-            <span id="/2019/08/29/输出旋转90°后的矩阵/" class="post-meta-item leancloud_visitors" data-flag-title="输出旋转90°后的矩阵" title="阅读次数">
+            <span id="/2019/09/03/sql篇其一/" class="post-meta-item leancloud_visitors" data-flag-title="sql篇其一" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -260,7 +260,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>i am rotate</p>
+        <p><em>sql系列文章为学习极客时间的”sql必知必会”这一课程的知识总结，此篇对应的课程是01-03，快速阅读即可</em></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们常说的SQL是一种语言，而mysql、Oracle这些则是数据库管理系统(下面简称为DBMS),SQL是我们与DBMS交互的语言，对于不同的DMBS会按照指定的SQL执行操作。</p>
+<p>SQL有两个重要的标准，SQL92和SQL99，分别是92年和99年发布的SQL标准。现在常用的SQL语言仍是使用这些标准。</p>
+<a id="more"></a>
+
+<h2 id="SQL按功能分类"><a href="#SQL按功能分类" class="headerlink" title="SQL按功能分类"></a>SQL按功能分类</h2><ol>
+<li><p>DDL，全称Data Definition Language，用于创建，删除和修改数据库和表结构</p>
+</li>
+<li><p>DML，全称Data Manipulation Language，用于增加、删除、修改数据库中的记录</p>
+</li>
+<li><p>DCL，全程Data Control Language，用于定义访问权限和安全级别</p>
+</li>
+<li><p>DQL，全称Data Query Language，用于查询数据库中的记录</p>
+</li>
+</ol>
+<h2 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h2><p>ER图(Entity Relationship Diagram)即实体-关系图,是设计表的重要方式。</p>
+<p>ER图有三大要素：实体、属性、关系</p>
+<p>实体就是要我们管理的对象，实体中拥有属性来标识不同的实体。关系比较难以抽象化，所以我用一个例子来说明这三要素。</p>
+<p>我们有三个实体，”孙笑川”、”吴亦凡”、”蔡徐坤”</p>
+<p>孙笑川的属性：抽象、儒雅随和<br>吴亦凡的属性：带电<br>蔡徐坤的属性：唱、跳、rap</p>
+<p>孙笑川是吴亦凡和蔡徐坤的哥哥，也有是说哥哥可以有多个弟弟，与之相应的弟弟也可以有多个哥哥。这也就是我们常说的多对多的关系。</p>
+<p>除此之外还有一对一和一对多的关系。</p>
+<p>具体的图待补充。。。</p>
+<h2 id="DBMS的分类"><a href="#DBMS的分类" class="headerlink" title="DBMS的分类"></a>DBMS的分类</h2><p>人们常说的SQL和NoSQL是指关系型数据库和非关系型数据库</p>
+<p>而非关系型数据库包含了键值型数据库、文档型数据库、搜索引擎和列存储以及图形数据库。</p>
+<p>键值型数据库：以Key-Value的形式存储数据，Key和Value都可以是对象。Key是唯一的标识符，优点是查找速度快，明显优于关系型。但缺点也很明显，它无法使用条件过滤，如果不确定要找哪里的数据，就要遍历所有键。</p>
+<blockquote>
+<p>键值型数据库常用于作内容缓存。其中Redis最为流行</p>
+</blockquote>
+<p>文档型数据库：用于管理文档，一个文档相当于一条记录</p>
+<blockquote>
+<p>最流行的文档型数据库为MongoDB</p>
+</blockquote>
+<p>搜索引擎：虽然不是真正意义上的数据库，但在数据库检索中也起到重要的作用,其优势在于采用全文搜索的技术，核心原理是“倒排索引”</p>
+<blockquote>
+<p>常见的全文搜索引擎有Elasticsearch、Splunk和Solr</p>
+</blockquote>
+<p>列式数据库：将数据按照列存储到数据库中，优势是可以大量降低系统的I/O，适合分布式文件系统，缺点是功能有限</p>
 
     </div>
 
@@ -277,8 +314,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/28/转圈打印矩阵/" rel="next" title="旋转打印矩阵">
-                  <i class="fa fa-chevron-left"></i> 旋转打印矩阵
+                <a href="/2019/08/31/堆及堆排序/" rel="next" title="堆及堆排序">
+                  <i class="fa fa-chevron-left"></i> 堆及堆排序
                 </a>
               
             </div>
@@ -286,10 +323,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
-                  堆及堆排序 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -321,8 +354,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -337,7 +379,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -384,6 +426,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL按功能分类"><span class="nav-number">2.</span> <span class="nav-text">SQL按功能分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ER图"><span class="nav-number">3.</span> <span class="nav-text">ER图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBMS的分类"><span class="nav-number">4.</span> <span class="nav-text">DBMS的分类</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
