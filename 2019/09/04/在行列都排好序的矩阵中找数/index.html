@@ -55,22 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="题目">
+  <meta name="description" content="题目给定一个有N*M的整型矩阵matrix和一个整数K，matrix的每一行和每一列都是排好序的。实现一个函数，判断K是否在matrix中。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="输出旋转90°后的矩阵">
-<meta property="og:url" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/index.html">
+<meta property="og:title" content="在行列都排好序的矩阵中找数">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="题目">
+<meta property="og:description" content="题目给定一个有N*M的整型矩阵matrix和一个整数K，matrix的每一行和每一列都是排好序的。实现一个函数，判断K是否在matrix中。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<meta property="og:updated_time" content="2019-09-02T13:11:47.334Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/example.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/process.png">
+<meta property="og:updated_time" content="2019-09-04T13:00:10.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="输出旋转90°后的矩阵">
-<meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-  <link rel="canonical" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+<meta name="twitter:title" content="在行列都排好序的矩阵中找数">
+<meta name="twitter:description" content="题目给定一个有N*M的整型矩阵matrix和一个整数K，matrix的每一行和每一列都是排好序的。实现一个函数，判断K是否在matrix中。">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/example.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/">
 
 
 <script id="page-configurations">
@@ -84,7 +83,7 @@
   };
 </script>
 
-  <title>输出旋转90°后的矩阵 | 彪码野郎</title>
+  <title>在行列都排好序的矩阵中找数 | 彪码野郎</title>
   
 
 
@@ -210,7 +209,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -224,7 +223,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">输出旋转90°后的矩阵
+          <h1 class="post-title" itemprop="name headline">在行列都排好序的矩阵中找数
 
             
           </h1>
@@ -241,12 +240,12 @@
                 
               
 
-              <time title="创建时间：2019-08-30 14:12:14" itemprop="dateCreated datePublished" datetime="2019-08-30T14:12:14+08:00">2019-08-30</time>
+              <time title="创建时间：2019-09-04 18:52:34" itemprop="dateCreated datePublished" datetime="2019-09-04T18:52:34+08:00">2019-09-04</time>
             </span>
           
 
           
-            <span id="/2019/08/30/输出旋转90°后的正方形/" class="post-meta-item leancloud_visitors" data-flag-title="输出旋转90°后的矩阵" title="阅读次数">
+            <span id="/2019/09/04/在行列都排好序的矩阵中找数/" class="post-meta-item leancloud_visitors" data-flag-title="在行列都排好序的矩阵中找数" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,21 +263,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2019/08/30/输出旋转90°后的正方形/question.png" title="问题">
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个有N*M的整型矩阵matrix和一个整数K，matrix的每一行和每一列都是排好序的。<br>实现一个函数，判断K是否在matrix中。</p>
+<img src="/2019/09/04/在行列都排好序的矩阵中找数/example.png">
 
 <a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><img src="/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<blockquote>
-<p>分析图片</p>
-</blockquote>
-<img src="/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<blockquote>
-<p>细节分析</p>
-</blockquote>
-<p>每一层正方形都进行次操作即可，下面来看下具体代码的实现。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="built_in">rotate</span>(<span class="built_in">int</span>[][] matrix) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> x1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> x2 = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">int</span> y1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> y2 = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x1 &lt; x2)&#123;</span><br><span class="line">        rotateEdge(matrix,x1++,x2--,y1++,y2--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rotateEdge(<span class="built_in">int</span>[][] m, <span class="built_in">int</span> x1, <span class="built_in">int</span> x2, <span class="built_in">int</span> y1, <span class="built_in">int</span> y2) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里用y2 - x1也可以，因为是正方形</span></span><br><span class="line">    <span class="built_in">int</span> times =  x2 - x1;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">        <span class="built_in">int</span> temp = m[x1 + i][y2];</span><br><span class="line">        m[x1 + i][y2] = m[x1][y1+i];</span><br><span class="line">        m[x1][y1 + i] = m[x2 - i][y1];</span><br><span class="line">        m[x2 - i][y1] = m[x2][y2 - i];</span><br><span class="line">        m[x2][y2 - i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">int</span>[][] matrix = &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">    <span class="built_in">rotate</span>(matrix);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"========="</span>);</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码就是纯粹的算边界问题，兄弟萌可以对照自己画的图进行编码。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>由于行和列都是排好序的，我们可以从矩阵的左下角或者右上角开始检查，有的兄弟萌可能就会问了为什么不能从左上角和右下角开始。我们先看下左上角和右下角的情况。</p>
+<blockquote>
+<p>右上角是第一行中最大的值，也是该列中最小的值，<br>我们把当前的值叫做current，若K大于current,则current左边的所有值都可以排除掉，current的位置向下移动一位，若K小于current,则current下面的所有值都可以排除掉，current的位置也随之向左移动。直到找到K或者越界则方法结束。</p>
+</blockquote>
+<p>左下角也是同理，这里就不作过多的赘述了</p>
+<p>这时候我们再回头看一下左上角和右下角的情况，我们没有办法能够一次移动排除多种可能性，只能采用遍历的方式，所以我们选择左下角和右下角。</p>
+<img src="/2019/09/04/在行列都排好序的矩阵中找数/process.png">
+
+<blockquote>
+<p>示例图</p>
+</blockquote>
+<p>下面来看下实际代码。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isContains(int[][] matrix, int K) &#123;</span><br><span class="line"></span><br><span class="line">        int current = matrix[<span class="number">0</span>][matrix[<span class="number">0</span>].length - <span class="number">1</span>];</span><br><span class="line">        int x = <span class="number">0</span>;</span><br><span class="line">        int y = <span class="number">0</span>;</span><br><span class="line">        while(x != matrix.length &amp;&amp; y != <span class="number">-1</span>)&#123;</span><br><span class="line">            if(current == K) return true;</span><br><span class="line"></span><br><span class="line">            if(current &gt; K) &#123;</span><br><span class="line">                current = matrix[x][--y];</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                current = matrix[++x][y];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[][] matrix = new int[][] &#123; &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;,<span class="comment">// 0</span></span><br><span class="line">                &#123; <span class="number">10</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span> &#125;,<span class="comment">// 1</span></span><br><span class="line">                &#123; <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span> &#125;,<span class="comment">// 2</span></span><br><span class="line">                &#123; <span class="number">44</span>, <span class="number">45</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span> &#125;,<span class="comment">// 3</span></span><br><span class="line">                &#123; <span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>, <span class="number">68</span>, <span class="number">69</span>, <span class="number">70</span>, <span class="number">71</span> &#125;,<span class="comment">// 4</span></span><br><span class="line">                &#123; <span class="number">96</span>, <span class="number">97</span>, <span class="number">98</span>, <span class="number">99</span>, <span class="number">100</span>, <span class="number">111</span>, <span class="number">122</span> &#125;,<span class="comment">// 5</span></span><br><span class="line">                &#123; <span class="number">166</span>, <span class="number">176</span>, <span class="number">186</span>, <span class="number">187</span>, <span class="number">190</span>, <span class="number">195</span>, <span class="number">200</span> &#125;,<span class="comment">// 6</span></span><br><span class="line">                &#123; <span class="number">233</span>, <span class="number">243</span>, <span class="number">321</span>, <span class="number">341</span>, <span class="number">356</span>, <span class="number">370</span>, <span class="number">380</span> &#125; <span class="comment">// 7</span></span><br><span class="line">        &#125;;</span><br><span class="line">        int K = <span class="number">233</span>;</span><br><span class="line">        System.out.println(isContains(matrix, K));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -295,8 +298,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/28/转圈打印矩阵/" rel="next" title="旋转打印矩阵">
-                  <i class="fa fa-chevron-left"></i> 旋转打印矩阵
+                <a href="/2019/09/04/矩阵输出为之字型/" rel="next" title="打矩阵输出为矩阵输出为之字型">
+                  <i class="fa fa-chevron-left"></i> 打矩阵输出为矩阵输出为之字型
                 </a>
               
             </div>
@@ -305,8 +308,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
-                  堆及堆排序 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/04/打印两个有序链表的公共部分/" rel="prev" title="打印两个有序链表的公共部分">
+                  打印两个有序链表的公共部分 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

@@ -55,22 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="题目">
+  <meta name="description" content="题目按照之字型的顺序输出一个矩阵，如下图所示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="输出旋转90°后的矩阵">
-<meta property="og:url" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/index.html">
+<meta property="og:title" content="打矩阵输出为矩阵输出为之字型">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="题目">
+<meta property="og:description" content="题目按照之字型的顺序输出一个矩阵，如下图所示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<meta property="og:updated_time" content="2019-09-02T13:11:47.334Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/example.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/process.png">
+<meta property="og:updated_time" content="2019-09-04T07:33:07.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="输出旋转90°后的矩阵">
-<meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-  <link rel="canonical" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+<meta name="twitter:title" content="打矩阵输出为矩阵输出为之字型">
+<meta name="twitter:description" content="题目按照之字型的顺序输出一个矩阵，如下图所示">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/example.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/">
 
 
 <script id="page-configurations">
@@ -84,7 +83,7 @@
   };
 </script>
 
-  <title>输出旋转90°后的矩阵 | 彪码野郎</title>
+  <title>打矩阵输出为矩阵输出为之字型 | 彪码野郎</title>
   
 
 
@@ -210,7 +209,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -224,7 +223,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">输出旋转90°后的矩阵
+          <h1 class="post-title" itemprop="name headline">打矩阵输出为矩阵输出为之字型
 
             
           </h1>
@@ -241,12 +240,12 @@
                 
               
 
-              <time title="创建时间：2019-08-30 14:12:14" itemprop="dateCreated datePublished" datetime="2019-08-30T14:12:14+08:00">2019-08-30</time>
+              <time title="创建时间：2019-09-04 09:36:31" itemprop="dateCreated datePublished" datetime="2019-09-04T09:36:31+08:00">2019-09-04</time>
             </span>
           
 
           
-            <span id="/2019/08/30/输出旋转90°后的正方形/" class="post-meta-item leancloud_visitors" data-flag-title="输出旋转90°后的矩阵" title="阅读次数">
+            <span id="/2019/09/04/矩阵输出为之字型/" class="post-meta-item leancloud_visitors" data-flag-title="打矩阵输出为矩阵输出为之字型" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,21 +263,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2019/08/30/输出旋转90°后的正方形/question.png" title="问题">
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>按照之字型的顺序输出一个矩阵，如下图所示</p>
+<img src="/2019/09/04/矩阵输出为之字型/example.png">
 
 <a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><img src="/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<blockquote>
-<p>分析图片</p>
-</blockquote>
-<img src="/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<blockquote>
-<p>细节分析</p>
-</blockquote>
-<p>每一层正方形都进行次操作即可，下面来看下具体代码的实现。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="built_in">rotate</span>(<span class="built_in">int</span>[][] matrix) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> x1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> x2 = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">int</span> y1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> y2 = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x1 &lt; x2)&#123;</span><br><span class="line">        rotateEdge(matrix,x1++,x2--,y1++,y2--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rotateEdge(<span class="built_in">int</span>[][] m, <span class="built_in">int</span> x1, <span class="built_in">int</span> x2, <span class="built_in">int</span> y1, <span class="built_in">int</span> y2) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里用y2 - x1也可以，因为是正方形</span></span><br><span class="line">    <span class="built_in">int</span> times =  x2 - x1;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">        <span class="built_in">int</span> temp = m[x1 + i][y2];</span><br><span class="line">        m[x1 + i][y2] = m[x1][y1+i];</span><br><span class="line">        m[x1][y1 + i] = m[x2 - i][y1];</span><br><span class="line">        m[x2 - i][y1] = m[x2][y2 - i];</span><br><span class="line">        m[x2][y2 - i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">int</span>[][] matrix = &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">    <span class="built_in">rotate</span>(matrix);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"========="</span>);</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码就是纯粹的算边界问题，兄弟萌可以对照自己画的图进行编码。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>由题目可以看出，之字型输出矩阵，就是从上到下或者从下到上的输出一条斜线，那么我们只需要写一个方法输出斜线，然后再根据边界进行循环即可。</p>
+<img src="/2019/09/04/矩阵输出为之字型/process.png">
+<blockquote>
+<p>设置a,b两个点表示一条线</p>
+</blockquote>
+<p>具体实现如下。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> printMatrixZigZag(<span class="keyword">int</span>[][] matrix) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> xa = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> xb = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ya = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> yb = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endX = matrix.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> endY = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">boolean</span> fromUp = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(xa != matrix.length - <span class="number">1</span>) &#123;</span><br><span class="line">            printLine(matrix, xa, xb, ya, yb, fromUp);</span><br><span class="line">            xa = ya == endY ? xa + 1 : xa;    <span class="comment">//到最右的话要向下</span></span><br><span class="line">            ya = ya == endY ? ya : ya + <span class="number">1</span>;    <span class="comment">//没到最右就继续向右</span></span><br><span class="line">            yb = xb == endX ? yb + 1 : yb;    <span class="comment">//到最下就向右</span></span><br><span class="line">            xb = xb == endX ? xb : xb + <span class="number">1</span>;    <span class="comment">//没到最下就继续往下</span></span><br><span class="line">            fromUp = !fromUp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//打印斜线,flag表示从上或者从下开始打印</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> printLine(<span class="keyword">int</span>[][] m , <span class="keyword">int</span> xa, <span class="keyword">int</span> xb, <span class="keyword">int</span> ya, <span class="keyword">int</span> yb, <span class="keyword">boolean</span> flag) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从上到下</span></span><br><span class="line">        <span class="keyword">if</span>(flag) &#123;</span><br><span class="line">            <span class="keyword">while</span>(xa != xb + <span class="number">1</span>) &#123;   <span class="comment">//a是上位，b是下位，ab是可以重合的，所以a如果等于b+1，就是越界了</span></span><br><span class="line">                System.out.println(m[xa++][ya--]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123; <span class="comment">//从下到上</span></span><br><span class="line">            <span class="keyword">while</span> (xb != xa - <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(m[xb--][yb++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) &#123;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix = &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> &#125;, &#123; <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;, &#123; <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span> &#125; &#125;;</span><br><span class="line">        printMatrixZigZag(matrix);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -295,8 +292,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/28/转圈打印矩阵/" rel="next" title="旋转打印矩阵">
-                  <i class="fa fa-chevron-left"></i> 旋转打印矩阵
+                <a href="/2019/09/03/sql篇其一/" rel="next" title="sql篇其一">
+                  <i class="fa fa-chevron-left"></i> sql篇其一
                 </a>
               
             </div>
@@ -305,8 +302,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
-                  堆及堆排序 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/04/在行列都排好序的矩阵中找数/" rel="prev" title="在行列都排好序的矩阵中找数">
+                  在行列都排好序的矩阵中找数 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

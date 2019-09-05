@@ -55,22 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="题目">
+  <meta name="description" content="介绍归并排序是一种采用分治思想实现的排序方式，大致的思路如下  把数组从中间分成前后两部分，然后对前后两部分都进行排序（不断分割，分割到一），再把两个排好序的数组合并，就完成啦。  接下来我们详细剖析一下各个步骤，深入理解归并排序。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="输出旋转90°后的矩阵">
-<meta property="og:url" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/index.html">
+<meta property="og:title" content="经典排序:归并排序">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/04/经典排序-归并排序/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="题目">
+<meta property="og:description" content="介绍归并排序是一种采用分治思想实现的排序方式，大致的思路如下  把数组从中间分成前后两部分，然后对前后两部分都进行排序（不断分割，分割到一），再把两个排好序的数组合并，就完成啦。  接下来我们详细剖析一下各个步骤，深入理解归并排序。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<meta property="og:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<meta property="og:updated_time" content="2019-09-02T13:11:47.334Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/经典排序-归并排序/process1.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/04/经典排序-归并排序/process2.png">
+<meta property="og:updated_time" content="2019-09-05T02:28:47.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="输出旋转90°后的矩阵">
-<meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/question.png">
-  <link rel="canonical" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+<meta name="twitter:title" content="经典排序:归并排序">
+<meta name="twitter:description" content="介绍归并排序是一种采用分治思想实现的排序方式，大致的思路如下  把数组从中间分成前后两部分，然后对前后两部分都进行排序（不断分割，分割到一），再把两个排好序的数组合并，就完成啦。  接下来我们详细剖析一下各个步骤，深入理解归并排序。">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/09/04/经典排序-归并排序/process1.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/04/经典排序-归并排序/">
 
 
 <script id="page-configurations">
@@ -84,7 +83,7 @@
   };
 </script>
 
-  <title>输出旋转90°后的矩阵 | 彪码野郎</title>
+  <title>经典排序:归并排序 | 彪码野郎</title>
   
 
 
@@ -210,7 +209,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/经典排序-归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -224,7 +223,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">输出旋转90°后的矩阵
+          <h1 class="post-title" itemprop="name headline">经典排序:归并排序
 
             
           </h1>
@@ -241,12 +240,12 @@
                 
               
 
-              <time title="创建时间：2019-08-30 14:12:14" itemprop="dateCreated datePublished" datetime="2019-08-30T14:12:14+08:00">2019-08-30</time>
+              <time title="创建时间：2019-09-04 21:04:40" itemprop="dateCreated datePublished" datetime="2019-09-04T21:04:40+08:00">2019-09-04</time>
             </span>
           
 
           
-            <span id="/2019/08/30/输出旋转90°后的正方形/" class="post-meta-item leancloud_visitors" data-flag-title="输出旋转90°后的矩阵" title="阅读次数">
+            <span id="/2019/09/04/经典排序-归并排序/" class="post-meta-item leancloud_visitors" data-flag-title="经典排序:归并排序" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,21 +263,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2019/08/30/输出旋转90°后的正方形/question.png" title="问题">
-
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>归并排序是一种采用分治思想实现的排序方式，大致的思路如下</p>
+<blockquote>
+<p>把数组从中间分成前后两部分，然后对前后两部分都进行排序（不断分割，分割到一），再把两个排好序的数组合并，就完成啦。</p>
+</blockquote>
+<p>接下来我们详细剖析一下各个步骤，深入理解归并排序。</p>
 <a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><img src="/2019/08/30/输出旋转90°后的正方形/explain1.png">
-<blockquote>
-<p>分析图片</p>
-</blockquote>
-<img src="/2019/08/30/输出旋转90°后的正方形/explain2.png">
-<blockquote>
-<p>细节分析</p>
-</blockquote>
-<p>每一层正方形都进行次操作即可，下面来看下具体代码的实现。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="built_in">rotate</span>(<span class="built_in">int</span>[][] matrix) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> x1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> x2 = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">int</span> y1 = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> y2 = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x1 &lt; x2)&#123;</span><br><span class="line">        rotateEdge(matrix,x1++,x2--,y1++,y2--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rotateEdge(<span class="built_in">int</span>[][] m, <span class="built_in">int</span> x1, <span class="built_in">int</span> x2, <span class="built_in">int</span> y1, <span class="built_in">int</span> y2) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里用y2 - x1也可以，因为是正方形</span></span><br><span class="line">    <span class="built_in">int</span> times =  x2 - x1;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">        <span class="built_in">int</span> temp = m[x1 + i][y2];</span><br><span class="line">        m[x1 + i][y2] = m[x1][y1+i];</span><br><span class="line">        m[x1][y1 + i] = m[x2 - i][y1];</span><br><span class="line">        m[x2 - i][y1] = m[x2][y2 - i];</span><br><span class="line">        m[x2][y2 - i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">int</span>[][] matrix = &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">    <span class="built_in">rotate</span>(matrix);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"========="</span>);</span><br><span class="line">    <span class="built_in">printMatrix</span>(matrix);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码就是纯粹的算边界问题，兄弟萌可以对照自己画的图进行编码。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><img src="/2019/09/04/经典排序-归并排序/process1.png">
+
+<blockquote>
+<p>分解过程</p>
+</blockquote>
+<img src="/2019/09/04/经典排序-归并排序/process2.png">
+
+<blockquote>
+<p>合并过程</p>
+</blockquote>
+<p><em>实现的细节在代码的注释中，虽然比较多，但希望认真阅读。</em></p>
+<p>下面来看下具体的实现。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span> n</span>)</span> &#123;</span><br><span class="line">        mergeSort(a,<span class="number">0</span>,n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//recursion</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span> left, <span class="keyword">int</span> right</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= right) <span class="keyword">return</span>;<span class="comment">//无法分解了</span></span><br><span class="line">        <span class="comment">//分而治之</span></span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        mergeSort(a,left,mid);</span><br><span class="line">        mergeSort(a,mid+<span class="number">1</span>,right);</span><br><span class="line">        <span class="comment">//合并</span></span><br><span class="line">        merge(a,left,mid,right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将两个数组merge在一起</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[right - left + <span class="number">1</span>];<span class="comment">//当前需要合并的大小</span></span><br><span class="line">        <span class="comment">//设置两个游标，一个一个元素的对比两个要合并的数组，</span></span><br><span class="line">        <span class="comment">// 小的进入temp中，当其中一个数组完全进入temp，则另一个数组可以直接全部进去temp，因为这两个数组都是排好序的了</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> p1 = left;</span><br><span class="line">        <span class="keyword">int</span> p2 = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(p1 &lt;= mid &amp;&amp; p2 &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[p1] &lt;= a[p2]) &#123;<span class="comment">//a[p1]小，那就先进去，小细节：这里是&lt;=</span></span><br><span class="line">                temp[i] = a[p1];    <span class="comment">//也就是说在两个元素相同的情况下，把在左边的元素先注入到temp中，从而保证了稳定性</span></span><br><span class="line">                p1++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                temp[i] = a[p2];<span class="comment">//a[p2]小，那就先进去</span></span><br><span class="line">                p2++;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//有其中一方结束了</span></span><br><span class="line">        <span class="keyword">while</span>(p2 &lt;= right) &#123;<span class="comment">//左边全部进入temp了,就放右边全部人进去</span></span><br><span class="line">            temp[i++] = a[p2++];    <span class="comment">//这里代码就直接这样了，干净点，上面是为了方面阅读</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p1 &lt;= mid) &#123;</span><br><span class="line">            temp [i++] = a[p1++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//把temp数据复制到a当中即可</span></span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; temp.length; i++) &#123; <span class="comment">//把所有temp都装到a中</span></span><br><span class="line">            a[left + i] = temp[i];<span class="comment">//注意这里必须是a[left + 1]因为你是每次都要merge，不是都从0开始的</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> [] a = &#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        mergeSort(a,a.length);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.print(a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>归并排序是一个稳定的排序算法，其时间复杂度为O(nlogn)，空间复杂度：O(n),因为临时的数组大小不会超过n。</p>
+<p>时间复杂度简略分析如下，有兴趣的兄弟萌可以看一下。</p>
+<p>设求解a的时间为T(a)，求解b和c的时间为T(b)、T(c)</p>
+<p>则T(a) = T(b) + T(c) + K   其中K是合并需要的时间</p>
+<p>设对n个元素进行归并排序的时间是T(n)，分解的两个子数组的排序时间是T(n/2),加上合并的n即可</p>
+<p>所以公式为 T(n) = 2 * T(n/2) + n;</p>
+<p>一步一步分解可以得到 T(n) = 2^kT(n/2^k) + kn， 当T(n/2^k) = T(1)<br>时，也就是n/2^k = 1,可以得出k = logn</p>
+<p>带入上面的公式可得 T(n) = Cn + nlogn，所以时间复杂度是O(nlogn)</p>
 
     </div>
 
@@ -295,8 +308,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/28/转圈打印矩阵/" rel="next" title="旋转打印矩阵">
-                  <i class="fa fa-chevron-left"></i> 旋转打印矩阵
+                <a href="/2019/09/04/打印两个有序链表的公共部分/" rel="next" title="打印两个有序链表的公共部分">
+                  <i class="fa fa-chevron-left"></i> 打印两个有序链表的公共部分
                 </a>
               
             </div>
@@ -304,10 +317,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/31/堆及堆排序/" rel="prev" title="堆及堆排序">
-                  堆及堆排序 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -421,7 +430,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
