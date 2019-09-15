@@ -201,6 +201,702 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/15/maven基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/15/maven基础/" class="post-title-link" itemprop="url">maven基础</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-15 19:06:59" itemprop="dateCreated datePublished" datetime="2019-09-15T19:06:59+08:00">2019-09-15</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/15/maven基础/" class="post-meta-item leancloud_visitors" data-flag-title="maven基础" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Maven是一个项目管理巩固，他把项目当作项目，这也就是人们常说的项目对象模型(Project Object Model)。<br>主要功能是依赖管理和项目信息管理。</p>
+<img src="/2019/09/15/maven基础/maven.png">
+
+<blockquote>
+<p>maven进行jar包管理(依赖管理)</p>
+</blockquote>
+<p>maven项目目录结构：</p>
+<ul>
+<li>src/main/java目录 核心代码部分</li>
+<li>src/main/resources 配置文件部分</li>
+<li>src/test/java目录 测试代码部分</li>
+<li>src/main/webapp 页面资源，js、css、图片等</li>
+</ul>
+<p>除此之外maven还有其他功能。</p>
+<p>Maven可以管理项目的整个声明周期，包括清除、编译，测试，报告、打包、部署等等。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/15/maven基础/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/13/实现二叉树前序、中序、后序遍历/" class="post-title-link" itemprop="url">实现二叉树前序、中序、后序遍历</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-13 12:20:41" itemprop="dateCreated datePublished" datetime="2019-09-13T12:20:41+08:00">2019-09-13</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/13/实现二叉树前序、中序、后序遍历/" class="post-meta-item leancloud_visitors" data-flag-title="实现二叉树前序、中序、后序遍历" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。</p>
+<h2 id="前序、中序、后序遍历的定义"><a href="#前序、中序、后序遍历的定义" class="headerlink" title="前序、中序、后序遍历的定义"></a>前序、中序、后序遍历的定义</h2><p>每次<em>进入</em>新节点(current)都进行以下操作：</p>
+<p><em>（下面的”操作”为输出或其他行为）</em></p>
+<ul>
+<li><p>前序遍历：首先操作当前节点current，接着进入并操作current.left，而后返回到current，再进入并操作current.right，最后返回current。</p>
+</li>
+<li><p>中序遍历：首先进入并操作current.left,接着返回并操作current,再进入current.right并操作,最后返回current。</p>
+</li>
+<li><p>后序遍历：首先进入并操作current.right,接着返回并操作current，而后再进入current.left并操作，最后返回current。</p>
+</li>
+</ul>
+<p>可以发现，我们在遍历二叉树的时候都会<em>进入*每一个节点(current)三次，<br>*(①进入current,②从左子树返回current,③从右子树返回current)</em><br>而这三次分别对应前中后序遍历。</p>
+<p>换一种说法，对于当前节点current,一定会经过3次。</p>
+<blockquote>
+<p>若第一次进入current并进行操作的则是先序遍历。</p>
+</blockquote>
+<blockquote>
+<p>若第二次进入current并进行操作的则是中序遍历。</p>
+</blockquote>
+<blockquote>
+<p>若第三次进入current并进行操作的则是后序遍历。</p>
+</blockquote>
+<p>文字过多可能会比较晕，下面看一下例子：</p>
+<img src="/2019/09/13/实现二叉树前序、中序、后序遍历/example.png">
+
+<blockquote>
+<p>此处仅是一个很简单的例子，读者可自行画一个大一点的树进行观察练习。</p>
+</blockquote>
+<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/10/两个单链表相交的一系列问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/10/两个单链表相交的一系列问题/" class="post-title-link" itemprop="url">两个单链表相交的一系列问题</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-10 16:16:31" itemprop="dateCreated datePublished" datetime="2019-09-10T16:16:31+08:00">2019-09-10</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/10/两个单链表相交的一系列问题/" class="post-meta-item leancloud_visitors" data-flag-title="两个单链表相交的一系列问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在本题中，单链表可能有环，也可能无环。给定两个单链表的头节点head1<br>和head2，这两个链表可能相交，也可能不相交，请实现一个函数，如果两个<br>链表相交，请返回相交的第一个节点；如果不相交，返回null即可。要求:<br>如果链表1长度为N，链表2的长度为M,时间复杂度请达到O(N+M),额外空间<br>复杂度请达到O(1)。</p>
+<p>本题可以分化成3个小问题</p>
+<ol>
+<li><p>判断单链表是否有环</p>
+</li>
+<li><p>求两个无环单链表第一个相交的节点</p>
+</li>
+<li><p>求两个有环单链表第一个相交的节点</p>
+</li>
+</ol>
+<img src="/2019/09/10/两个单链表相交的一系列问题/example.png">
+
+<blockquote>
+<p>环和相交的图例</p>
+</blockquote>
+<p>我们可以先把每一个小问题都解决了再回头看整道题</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/10/两个单链表相交的一系列问题/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/08/复制含有随机指针节点的链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/08/复制含有随机指针节点的链表/" class="post-title-link" itemprop="url">复制含有随机指针节点的链表</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-08 21:10:07" itemprop="dateCreated datePublished" datetime="2019-09-08T21:10:07+08:00">2019-09-08</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/08/复制含有随机指针节点的链表/" class="post-meta-item leancloud_visitors" data-flag-title="复制含有随机指针节点的链表" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>一种特殊的链表节点类描述如下：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class <span class="keyword">Node</span> <span class="title">&#123;</span></span><br><span class="line"><span class="title">    public</span> int value;</span><br><span class="line">    public <span class="keyword">Node</span> <span class="title">next</span>;</span><br><span class="line">    public <span class="keyword">Node</span> <span class="title">rand</span>;</span><br><span class="line">    public <span class="keyword">Node</span><span class="title">(int</span> data)&#123;</span><br><span class="line">        this.value = data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该类和正常节点拥有一样的功能，还新增了一个rand指针，可以指向链表钟的任意一个节点，也可以指向null。</p>
+<img src="/2019/09/08/复制含有随机指针节点的链表/question.png">
+
+<p>请实现一个函数完成这个链表钟所有结构的复制，并返回复制的新链表的头节点。进阶：不用额外的数据结构，只用有限几个遍历，且再时间复杂度为O(N)内完成。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/08/复制含有随机指针节点的链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/07/荷兰国旗问题-单链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/07/荷兰国旗问题-单链表/" class="post-title-link" itemprop="url">荷兰国旗问题(单链表)</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 17:07:49" itemprop="dateCreated datePublished" datetime="2019-09-07T17:07:49+08:00">2019-09-07</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/07/荷兰国旗问题-单链表/" class="post-meta-item leancloud_visitors" data-flag-title="荷兰国旗问题(单链表)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>将单向链表按某值划分为左边小、中间相等、右边大的形式</p>
+<p>例子：</p>
+<blockquote>
+<p>9-&gt;0-&gt;4-&gt;5-&gt;1,pivot=3,调整后为1-&gt;0-&gt;4-&gt;9-&gt;5</p>
+</blockquote>
+<p>进阶：在原问题的基础上再增加两个要求，左中右三部分都要稳定性，要求时间复杂度为O(N),额外空间复杂度为O(1)。</p>
+<p>例子：</p>
+<blockquote>
+<p>9-&gt;0-&gt;4-&gt;5-&gt;1,pivot=3,调整后为<br>0-&gt;1-&gt;9-&gt;5-&gt;4</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/荷兰国旗问题-单链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/06/数据库原理笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/06/数据库原理笔记/" class="post-title-link" itemprop="url">数据库原理笔记</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 21:32:02" itemprop="dateCreated datePublished" datetime="2019-09-06T21:32:02+08:00">2019-09-06</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/06/数据库原理笔记/" class="post-meta-item leancloud_visitors" data-flag-title="数据库原理笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em>施工中。待补充有TODO字眼</em></p>
+<h2 id="第一章：概述数据库"><a href="#第一章：概述数据库" class="headerlink" title="第一章：概述数据库"></a>第一章：概述数据库</h2><p>数据库：</p>
+<pre><code>长期存储在计算机内，有组织的可共享的数据集合。</code></pre><p>数据库管理系统：</p>
+<pre><code>数据库 + 一组用以访问、更新和管理这些数据的程序</code></pre><p>DBMS的特性：</p>
+<pre><code>数据访问的高效和可扩展性
+缩短应用开发时间
+数据独立性(物理数据独立性/逻辑数据独立性)
+数据完整性和安全性
+并发访问和鲁棒性(回父)</code></pre>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/数据库原理笔记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/06/汇编知识汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/06/汇编知识汇总/" class="post-title-link" itemprop="url">汇编知识汇总</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 21:28:04" itemprop="dateCreated datePublished" datetime="2019-09-06T21:28:04+08:00">2019-09-06</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/06/汇编知识汇总/" class="post-meta-item leancloud_visitors" data-flag-title="汇编知识汇总" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/05/反转链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -363,9 +1059,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表的头节点head,请判断该链表是否为回文结构。</p>
+<blockquote>
+<p>例子: 1-&gt;2-&gt;1,返回true，1-&gt;2-&gt;2-&gt;1,返回true，1-&gt;2-&gt;3，返回false。</p>
+</blockquote>
+<blockquote>
+<p>额外条件： 如果链表长为N，时间复杂度达到O(N),额外空间复杂度到达O(1)。</p>
+</blockquote>
+          <!--noindex-->
           
-            
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/05/判断回文链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -478,665 +1187,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/打印两个有序链表的公共部分/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/04/打印两个有序链表的公共部分/" class="post-title-link" itemprop="url">打印两个有序链表的公共部分</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-04 21:03:25" itemprop="dateCreated datePublished" datetime="2019-09-04T21:03:25+08:00">2019-09-04</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/04/打印两个有序链表的公共部分/" class="post-meta-item leancloud_visitors" data-flag-title="打印两个有序链表的公共部分" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/在行列都排好序的矩阵中找数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/04/在行列都排好序的矩阵中找数/" class="post-title-link" itemprop="url">在行列都排好序的矩阵中找数</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-04 18:52:34" itemprop="dateCreated datePublished" datetime="2019-09-04T18:52:34+08:00">2019-09-04</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/04/在行列都排好序的矩阵中找数/" class="post-meta-item leancloud_visitors" data-flag-title="在行列都排好序的矩阵中找数" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个有N*M的整型矩阵matrix和一个整数K，matrix的每一行和每一列都是排好序的。<br>实现一个函数，判断K是否在matrix中。</p>
-<img src="/2019/09/04/在行列都排好序的矩阵中找数/example.png">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/04/在行列都排好序的矩阵中找数/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/矩阵输出为之字型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/04/矩阵输出为之字型/" class="post-title-link" itemprop="url">打矩阵输出为矩阵输出为之字型</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-04 09:36:31" itemprop="dateCreated datePublished" datetime="2019-09-04T09:36:31+08:00">2019-09-04</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/04/矩阵输出为之字型/" class="post-meta-item leancloud_visitors" data-flag-title="打矩阵输出为矩阵输出为之字型" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>按照之字型的顺序输出一个矩阵，如下图所示</p>
-<img src="/2019/09/04/矩阵输出为之字型/example.png">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/04/矩阵输出为之字型/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/03/sql篇其一/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/03/sql篇其一/" class="post-title-link" itemprop="url">sql篇其一</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-03 15:47:35" itemprop="dateCreated datePublished" datetime="2019-09-03T15:47:35+08:00">2019-09-03</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/03/sql篇其一/" class="post-meta-item leancloud_visitors" data-flag-title="sql篇其一" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><em>sql系列文章为学习极客时间的”sql必知必会”这一课程的知识总结，此篇对应的课程是01-03，除特殊标注之外的快速阅读即可</em></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们常说的SQL是一种语言，而mysql、Oracle这些则是数据库管理系统(下面简称为DBMS),SQL是我们与DBMS交互的语言，对于不同的DMBS会按照指定的SQL执行操作。</p>
-<p>SQL有两个重要的标准，SQL92和SQL99，分别是92年和99年发布的SQL标准。现在常用的SQL语言仍是使用这些标准。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/03/sql篇其一/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/31/堆及堆排序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/31/堆及堆排序/" class="post-title-link" itemprop="url">堆及堆排序</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-31 22:04:11" itemprop="dateCreated datePublished" datetime="2019-08-31T22:04:11+08:00">2019-08-31</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/2019/08/31/堆及堆排序/" class="post-meta-item leancloud_visitors" data-flag-title="堆及堆排序" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="堆与堆排序"><a href="#堆与堆排序" class="headerlink" title="堆与堆排序"></a>堆与堆排序</h1><p><em>注意阅读本文前应掌握<a href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/7773232?fr=aladdin" target="_blank" rel="noopener">树的基本知识</a></em></p>
-<h2 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h2><p>堆也称之为优先队列，根据其优先级细分为各种堆(队列)<br>常见的堆有两种，一种叫<em>大根堆<em>，一种叫</em>小根堆</em></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/31/堆及堆排序/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/30/输出旋转90°后的正方形/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/30/输出旋转90°后的正方形/" class="post-title-link" itemprop="url">输出旋转90°后的矩阵</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-30 14:12:14" itemprop="dateCreated datePublished" datetime="2019-08-30T14:12:14+08:00">2019-08-30</time>
-            </span>
-          
-
-          
-            <span id="/2019/08/30/输出旋转90°后的正方形/" class="post-meta-item leancloud_visitors" data-flag-title="输出旋转90°后的矩阵" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2019/08/30/输出旋转90°后的正方形/question.png" title="问题">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/30/输出旋转90°后的正方形/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/08/28/转圈打印矩阵/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/28/转圈打印矩阵/" class="post-title-link" itemprop="url">旋转打印矩阵</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-28 19:14:34" itemprop="dateCreated datePublished" datetime="2019-08-28T19:14:34+08:00">2019-08-28</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/2019/08/28/转圈打印矩阵/" class="post-meta-item leancloud_visitors" data-flag-title="旋转打印矩阵" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2> <img src="/2019/08/28/转圈打印矩阵/question.png" title="题目">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/28/转圈打印矩阵/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1172,7 +1227,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
