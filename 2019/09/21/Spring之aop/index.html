@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jojo-32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-jojo-16.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="前言本文有TODO啊。 本文并不会具体写Spring aop的api之类的，大部分为了理解Spring AOP的原理。如果要看使用的话可以随便看一下网上随便搜的 aop简介AOP（Aspect Oriented Programming），面向切面编程。  简单来说，就是在执行某项事务前或后要执行通用的操作，有的人可能会说直接复制黏贴不就好了，那如果有许多事务都要求有通用的操作呢？（如：打印日志）这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring之aop">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/21/Spring之aop/index.html">
+<meta property="og:site_name" content="彪码野郎">
+<meta property="og:description" content="前言本文有TODO啊。 本文并不会具体写Spring aop的api之类的，大部分为了理解Spring AOP的原理。如果要看使用的话可以随便看一下网上随便搜的 aop简介AOP（Aspect Oriented Programming），面向切面编程。  简单来说，就是在执行某项事务前或后要执行通用的操作，有的人可能会说直接复制黏贴不就好了，那如果有许多事务都要求有通用的操作呢？（如：打印日志）这">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/21/Spring之aop/proxy.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/21/Spring之aop/classImg.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/21/Spring之aop/introduction.png">
+<meta property="og:updated_time" content="2019-09-25T08:41:25.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring之aop">
+<meta name="twitter:description" content="前言本文有TODO啊。 本文并不会具体写Spring aop的api之类的，大部分为了理解Spring AOP的原理。如果要看使用的话可以随便看一下网上随便搜的 aop简介AOP（Aspect Oriented Programming），面向切面编程。  简单来说，就是在执行某项事务前或后要执行通用的操作，有的人可能会说直接复制黏贴不就好了，那如果有许多事务都要求有通用的操作呢？（如：打印日志）这">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/09/21/Spring之aop/proxy.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/21/Spring之aop/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Spring之aop | 彪码野郎</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">彪码野郎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/21/Spring之aop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">Spring之aop
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-21 09:24:00" itemprop="dateCreated datePublished" datetime="2019-09-21T09:24:00+08:00">2019-09-21</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/21/Spring之aop/" class="post-meta-item leancloud_visitors" data-flag-title="Spring之aop" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文有TODO啊。</p>
+<p>本文并不会具体写Spring aop的api之类的，大部分为了理解Spring AOP的原理。<br>如果要看使用的话可以随便看一下<a href="https://www.cnblogs.com/flying607/p/7833700.html" target="_blank" rel="noopener">网上随便搜的</a></p>
+<h1 id="aop简介"><a href="#aop简介" class="headerlink" title="aop简介"></a>aop简介</h1><p>AOP（Aspect Oriented Programming），面向切面编程。</p>
+<ul>
+<li>简单来说，就是在执行某项事务前或后要执行通用的操作，有的人可能会说直接复制黏贴不就好了，那如果有许多事务都要求有通用的操作呢？<em>（如：打印日志）</em>这会让代码十分冗余，而且一旦要修改通用功能，每一个事务都要修改，这显然违背了我们的<strong>开闭原则</strong> <em>(开放扩展，关闭修改)</em>。这也就引出了aop的思想，在讲解aop之前我们需要先了解<strong>代理</strong>。</li>
+</ul>
+<a id="more"></a>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>代理（Proxy）模式，用户不直接访问目标对象，而由其他对象间接访问。</p>
+<p>举个例子，这就和买房一样，你并不会直接和房地产商直接沟通，而是和经销商交涉交易。</p>
+<p>虽然我们没和目标直接接触，但事实上目标已经执行了（卖房）,而经销商也从这以过程中进行了操作（办理手续等）。</p>
+<img src="/2019/09/21/Spring之aop/proxy.png">
+
+<p>下面来看一下实际的代码吧</p>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p>在web开发中，我们常常由多个Dao,现在由个UserDao的接口，如下</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>UserDao &#123;</span><br><span class="line">    void save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UserDaoImpl实现了接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"保存数据"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时，我想在dao操作前开启事务，执行后关闭事务，假设有很多操作都要这样。如下</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"保存数据"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"---删除数据---"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"---更新数据---"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"---查询数据---"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码是不是很恶心，全部都是重复代码。这时我们就要创建一个代理来帮助我们。我们要注意两个点</p>
+<ul>
+<li>代理要和userDao用一样的方法</li>
+<li>代理只是帮你增强userDao的方法，实际关键点还是UserDao</li>
+</ul>
+<p>明白了上面两点我们就可以来写代理类了，</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoProxy</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存好目标，到时代理要用</span></span><br><span class="line">        <span class="keyword">private</span> UserDao <span class="keyword">target</span>;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">UserDaoProxy</span><span class="params">(UserDao <span class="keyword">target</span>)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.<span class="keyword">target</span> = <span class="keyword">target</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"开启事务"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">target</span>.save();  <span class="comment">//目标的关键操作</span></span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过代理来用操作啦</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//目标对象</span></span><br><span class="line">        UserDao <span class="keyword">target</span> = <span class="keyword">new</span> UserDaoImpl();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建代理</span></span><br><span class="line">        UserDao proxy = <span class="keyword">new</span> UserDaoProxy(<span class="keyword">target</span>);</span><br><span class="line">        proxy.save();   <span class="comment">//通过代理帮我们执行target的save</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是人们常说的<strong>静态代理</strong>了。</p>
+<p>不过仔细看一下这些代码，接口一改，代理也要改，接口一多，代理也多，代理和接口的耦合度也太高了吧。</p>
+<p>不要怕，jdk帮我们想好出路了！！就决定时你了！<strong>动态代理</strong>！</p>
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><p>动态代理的优点：</p>
+<ul>
+<li>代理类不用实现接口，减少了代理类</li>
+<li>JDKAPI会动态生成代理对象（根据我们指定的目标对象，代理对象，实现接口的类型）</li>
+</ul>
+<p>下面我们来看一下如何实现的吧。</p>
+<p>JAVA的API中提供了Proxy类，用它的newInstance方法就可以获得目标的代理对象。</p>
+<p>newInstance方法有三个参数</p>
+<ol>
+<li>loader，代理对象的类装载器</li>
+<li>interfaces，目标对象的接口</li>
+<li>handler，用于增强方法</li>
+</ol>
+<p>由上面的三个参数可以推测出</p>
+<ul>
+<li>因为有目标对象的接口，所以代理对象拥有和目标对象一样的方法</li>
+<li>代理对象的方法实际都是handler执行的</li>
+</ul>
+<h3 id="目标对象"><a href="#目标对象" class="headerlink" title="目标对象"></a>目标对象</h3><p>乔尼·乔斯达是JoJo家族的人，会替身和波纹。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Johnny</span> <span class="keyword">implements</span> <span class="title">JoJo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"这就是我的替身，牙！！！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bowen</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"欧巴哆啦A梦！！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>public interface JoJo {</p>
+<pre><code>void stand();
+void bowen();</code></pre><p>}</p>
+<h3 id="代理类"><a href="#代理类" class="headerlink" title="代理类"></a>代理类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">JohnnyProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//维护johnny</span></span><br><span class="line">        Johnny johnny = <span class="keyword">new</span> Johnny();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//返回代理对象</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> JoJo <span class="title">getProxy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * <span class="doctag">@param</span>1  代理类的类装载器</span></span><br><span class="line"><span class="comment">             * <span class="doctag">@param</span>2  目标对象的接口</span></span><br><span class="line"><span class="comment">             * <span class="doctag">@param</span>3  handler的实现类</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">return</span> (JoJo) java.lang.reflect.Proxy.newProxyInstance(JohnnyProxy.class.getClassLoader(),johnny.getClass().getInterfaces(),</span><br><span class="line">                        <span class="keyword">new</span> InvocationHandler()&#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line"></span><br><span class="line">                                System.out.println(<span class="string">"前置增强"</span>);</span><br><span class="line">                                <span class="comment">//johnny使用了方法啦，还有参数都给你准备好了</span></span><br><span class="line">                                method.invoke(johnny,args);</span><br><span class="line">                                System.out.println(<span class="string">"后置增强"</span>);</span><br><span class="line">                                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        /</span><br><span class="line">        <span class="comment">//动态代理</span></span><br><span class="line"></span><br><span class="line">        JohnnyProxy johnnyProxy = <span class="keyword">new</span> JohnnyProxy();</span><br><span class="line">        <span class="comment">//代理里面就有johnny</span></span><br><span class="line">        JoJo proxy = johnnyProxy.getProxy();</span><br><span class="line">        proxy.stand(<span class="string">"牙!!1"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们对比一下静态代理和动态代理：</p>
+<ul>
+<li><p>静态代理</p>
+<ul>
+<li>1.代理类要实现目标的接口，并实现方法，所以修改接口，代理类也要随之修改。</li>
+<li>2.代理类要预先创建</li>
+</ul>
+</li>
+<li><p>动态代理</p>
+<ul>
+<li>1.代理类不用实现目标接口，改接口后不用改代理类（因为反射都帮你把方法和参数都自动写了）</li>
+<li>2.JDK会动态的帮你生产所需的代理对象(反射嘛)</li>
+<li>3.目标对象一定要有接口</li>
+</ul>
+</li>
+</ul>
+<p>总结一下，代理模式的作用，就是增强方法，在原方法的前后都可以添加操作。</p>
+<p>休息一下，然后看看Spring中的aop是怎么实现的吧。</p>
+<h1 id="Spring中的aop"><a href="#Spring中的aop" class="headerlink" title="Spring中的aop"></a>Spring中的aop</h1><h2 id="cglib代理简介"><a href="#cglib代理简介" class="headerlink" title="cglib代理简介"></a>cglib代理简介</h2><p>回忆一下，我们因为<strong>静态代理</strong>需要实现目标的接口，一旦修改接口，代理类也要修改。<br>所以我们学了<strong>动态代理</strong>，但动态代理也不是完美的，它需要目标对象拥有接口。</p>
+<p>cglib代理又叫做<strong>子类代理</strong>，从内存中构建一个子类进目标对象进行增强。</p>
+<h3 id="编写cglib代理"><a href="#编写cglib代理" class="headerlink" title="编写cglib代理"></a>编写cglib代理</h3><p>在编写cglib代理前要注意一下几点</p>
+<ol>
+<li><p>代理的类为final会报错，因为cglib就是构建子类进行增强的，目标为final就不能继承了。</p>
+</li>
+<li><p>若目标对象的方法时final，则不会对该方法进行增强。</p>
+</li>
+<li><p>编写cglib代理需要引入<strong>cglib包</strong>，cblib.jar已经在spring的核心包中有了，所以我们只要导入Spring-core-x.x.x.jar即可。</p>
+</li>
+</ol>
+<ul>
+<li><p>cglib包是一个高性能的代码生成包，它可以在运行时扩展类和实现接口。。<br>它在许多AOP框架中使用，如Spring AOP(interception)。</p>
+</li>
+<li><p>实现如下：</p>
+</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyFactory</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//保存目标对象</span></span><br><span class="line">    <span class="keyword">private</span> Object <span class="keyword">target</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyFactory</span><span class="params">(Object <span class="keyword">target</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">target</span> = <span class="keyword">target</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">getProxyInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建工具类</span></span><br><span class="line">        Enhancer en = <span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">//2.设置父类</span></span><br><span class="line">        en.setSuperclass(<span class="keyword">target</span>.getClass());</span><br><span class="line">        <span class="comment">//3.设置回调函数，MethodInterceptor就是继承了CallBack的</span></span><br><span class="line">        en.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//4.创建子类</span></span><br><span class="line">        <span class="function"><span class="keyword">return</span> en.<span class="title">create</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//增强</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"开始事务"</span>);</span><br><span class="line"></span><br><span class="line">        Object ret = method.invoke(<span class="keyword">target</span>, args);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"结束事务"</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试如下：</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        UserDao ud = <span class="keyword">new</span> UserDao();</span><br><span class="line">        UserDao proxy = (UserDao) <span class="keyword">new</span> ProxyFactory(ud).getProxyInstance();</span><br><span class="line">        proxy.save();</span><br><span class="line">        <span class="comment">//看看是不是真的是子类吧</span></span><br><span class="line">        System.out.println(proxy.getClass().getSuperclass());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://blog.csdn.net/tiandesheng111/article/details/39833901" target="_blank" rel="noopener">cglib扩展阅读</a></li>
+</ul>
+<h2 id="手撕基于代理的Spring-AOP"><a href="#手撕基于代理的Spring-AOP" class="headerlink" title="手撕基于代理的Spring AOP"></a>手撕基于代理的Spring AOP</h2><p>aop面向切面编程，全称：aspect object programming  面向切面编程。</p>
+<ul>
+<li>功能： 让业务代码和重复的代码分离。</li>
+</ul>
+<p>看下面的代码</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"保存数据"</span>);</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"开启事务"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"---删除数据---"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">//还有很多和这方法很像的方法...</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>是不是发现和上面学代理的时候情况很像，没错,我就是照抄的233。</p>
+</blockquote>
+<ul>
+<li>这里我们为了方便我们把公共部分需要重复编写的代码统称为<strong>切面</strong>，把重点的业务称作<strong>切点</strong>，把切点放入切面中称作<strong>织入</strong>。</li>
+</ul>
+<ul>
+<li><p>厨师在做三文治的时候是要吐司（<em>切面</em>）和馅料（<em>切点</em>），客人点单后，厨师们<strong>动态</strong>地把馅料，放在吐司中间（<em>织入</em>）。<br>注意，这里吐司和馅料都可以随便换的，比如我想吃黑麦肉松三文治（黑麦吐司+肉松），你想吃黑麦火腿三文治（黑麦吐司+火腿）。</p>
+</li>
+<li><p>Spring aop 做的事事情就和做三文治一样的，你提供一个切面，和切点，它帮你进行织入。</p>
+</li>
+</ul>
+<p>下面我们就来自己实现一下Spring aop 吧。</p>
+<p>这种对方法的增强，肯定是我<strong>代理</strong>的天下啦。这里我们使用cglib</p>
+<ol>
+<li>把切面的功能封装起来</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AOP</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openTransaction</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"打开事务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">closeTransaction</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"关闭事务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建代理</li>
+</ol>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyFactory2</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里需要管理切面和需要增强的对象</span></span><br><span class="line">    <span class="keyword">private</span> AOP aop;</span><br><span class="line">    <span class="keyword">private</span> Object <span class="keyword">target</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyFactory2</span><span class="params">(AOP aop, Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.aop = aop;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">target</span> = obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">getProxyInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建工具类</span></span><br><span class="line">        Enhancer en = <span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">//2.设置父类</span></span><br><span class="line">        en.setSuperclass(<span class="keyword">target</span>.getClass());</span><br><span class="line">        <span class="comment">//3.设置回调函数，MethodInterceptor就是继承了CallBack的</span></span><br><span class="line">        en.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//4.创建子类</span></span><br><span class="line">        <span class="function"><span class="keyword">return</span> en.<span class="title">create</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line"></span><br><span class="line">        aop.openTransaction();</span><br><span class="line">        Object ret = method.invoke(<span class="keyword">target</span>, args);</span><br><span class="line">        aop.closeTransaction();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>测试<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这里直接new了，spring的话注入就完事了</span></span><br><span class="line">        UserDao ud = <span class="keyword">new</span> UserDao();</span><br><span class="line">        AOP aop = <span class="keyword">new</span> AOP();</span><br><span class="line">        <span class="comment">//指定切面和切入点</span></span><br><span class="line">        UserDao proxy = (UserDao) <span class="keyword">new</span> ProxyFactory2(aop,ud).getProxyInstance();</span><br><span class="line">        proxy.save();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>上面我们是基于cglib代理进行实现的aop，实际上Spring AOP有两套实现方式，我们常用的是Spring AspectJ<ul>
+<li>基于<strong>代理</strong>的经典SpringAOP(advisor)<ul>
+<li>在这种方式下Spring AOP 默认使用的是JDK动态代理，若目标类没有接口则用cglib代理。上面的代码就是简化版的</li>
+</ul>
+</li>
+<li>基于<strong>AspectJ</strong>的AOP(aspect)<ul>
+<li>Spring借鉴了<strong>AspectJ</strong>的做法，但Spring AOP本质上还是动态代理。所以Spring AOP不需要专门的编辑器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>AspectJ是<strong>语言级别</strong>的AOP实现，扩展了Java语言，定义了AOP语法，能够在<strong>编译期</strong>提供横切代码的织入，所以它有专门的编译器用来生成遵守Java字节码规范的Class文件(Spring aop是在<strong>运行时</strong>织入)</p>
+</blockquote>
+<h2 id="Spring-AspectJ"><a href="#Spring-AspectJ" class="headerlink" title="Spring AspectJ"></a>Spring AspectJ</h2><p>在讲Spring AspectJ之前我们需要先补充两个专业名词：</p>
+<ul>
+<li><p>通知（Advice）：表示添加到切点的代码，并携带了具体位置信息（前置、后置、返回、异常、环绕）。</p>
+</li>
+<li><p>引入/引介（Introduction）：向现有的类添加新方法或属性，是一种特殊的增强。</p>
+</li>
+</ul>
+<p>Spring 给我们提供了更强大的aop，它能够指定单体某个方法作为切点，并用通知（Advice）来确定织入的具体位置（如切点的前置、后置、返回等）。</p>
+<p>基本的注解和xml随便找个博客就能抄了，很简单就不写了。</p>
+<h3 id="使用引入-引介实现为Bean新增方法"><a href="#使用引入-引介实现为Bean新增方法" class="headerlink" title="使用引入/引介实现为Bean新增方法"></a>使用引入/引介实现为Bean新增方法</h3><p>现在我们有Student和Teacher两个接口及其实现类如下，</p>
+<img src="/2019/09/21/Spring之aop/classImg.png">
+<p>现在小明想要造反了，想要改试卷，问题是小明不可能成为老师的（不能实现teacher接口），这可咋整呢。这时候就可以使用引入切面了，让代理来帮助小明“改卷”，</p>
+<ul>
+<li>创建切面类</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Aspect</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@DeclareParents</span>(value = <span class="string">"com.xxx.XiaoMing"</span>,  <span class="comment">// 指定学生具体的实现</span></span><br><span class="line">            defaultImpl = MissLi.<span class="keyword">class</span>) <span class="comment">// 老师具体的实现</span></span><br><span class="line">    <span class="keyword">public</span> Teacher miss; <span class="comment">// 要实现的目标接口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当你写完并引入这个切面的时候，spring会自动帮XiaoMing实现Teacher接口。<br>只要强转一下，小明也可以改试卷啦！<br>。。。</p>
+<p>然而事实是这样的</p>
+<ul>
+<li>当引入接口方法被调用时，代理对象会把此调用委托给实现了新接口的某个其他对象。实际上，一个Bean的实现被拆分到多个类中。<ul>
+<li>也可以这么理解，在代理类中，我们有两个对象。</li>
+</ul>
+</li>
+</ul>
+<img src="/2019/09/21/Spring之aop/introduction.png">
+
+<hr>
+<h1 id="总结与注意事项"><a href="#总结与注意事项" class="headerlink" title="总结与注意事项"></a>总结与注意事项</h1><p>其实AOP还有很多很多的知识点，但大致上就是上面那些了。</p>
+<ul>
+<li>AOP的底层就是动态代理(JDK代理和cglib代理)，是<strong>运行</strong>是的增强</li>
+<li>使用单例的话，最好使用CGLib代理，因为CGLib代理对象运行速度要比JDK的代理对象要快</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/20/spring之iocTODO/" rel="next" title="spring之ioc">
+                  <i class="fa fa-chevron-left"></i> spring之ioc
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/21/flex布局快速入门/" rel="prev" title="flex布局快速入门">
+                  flex布局快速入门 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="Weapon">
+  <p class="site-author-name" itemprop="name">Weapon</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop简介"><span class="nav-number">2.</span> <span class="nav-text">aop简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代理模式"><span class="nav-number">3.</span> <span class="nav-text">代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态代理"><span class="nav-number">3.1.</span> <span class="nav-text">静态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态代理"><span class="nav-number">3.2.</span> <span class="nav-text">动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标对象"><span class="nav-number">3.2.1.</span> <span class="nav-text">目标对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">3.2.2.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理类"><span class="nav-number">3.2.3.</span> <span class="nav-text">代理类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.2.4.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring中的aop"><span class="nav-number">4.</span> <span class="nav-text">Spring中的aop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cglib代理简介"><span class="nav-number">4.1.</span> <span class="nav-text">cglib代理简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写cglib代理"><span class="nav-number">4.1.1.</span> <span class="nav-text">编写cglib代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手撕基于代理的Spring-AOP"><span class="nav-number">4.2.</span> <span class="nav-text">手撕基于代理的Spring AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AspectJ"><span class="nav-number">4.3.</span> <span class="nav-text">Spring AspectJ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用引入-引介实现为Bean新增方法"><span class="nav-number">4.3.1.</span> <span class="nav-text">使用引入/引介实现为Bean新增方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结与注意事项"><span class="nav-number">5.</span> <span class="nav-text">总结与注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weapon</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=VVGO15ghlOeN9BAPuduVn990-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'VVGO15ghlOeN9BAPuduVn990-gzGzoHsz',
+            'X-LC-Key': 'VpDSWuIjeD6ejvuEGncVBuH5',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

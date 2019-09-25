@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义每次进入新节点(current)都进行以下操作： （下面的”操作”为输出或其他行为）  前序遍历：首先操作当前节点current，接着进入并操作current.left，而后返回到current，">
+  <meta name="description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义最简单的理解  前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右) 中序遍历：对于每个节点而言，先输出左子树，再输出自身，再输出右子树。（左中右） 后序遍历：对于每">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现二叉树前序、中序、后序遍历">
 <meta property="og:url" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义每次进入新节点(current)都进行以下操作： （下面的”操作”为输出或其他行为）  前序遍历：首先操作当前节点current，接着进入并操作current.left，而后返回到current，">
+<meta property="og:description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义最简单的理解  前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右) 中序遍历：对于每个节点而言，先输出左子树，再输出自身，再输出右子树。（左中右） 后序遍历：对于每">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/example.png">
-<meta property="og:updated_time" content="2019-09-13T14:48:01.413Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/inOrderUnrecur.png">
+<meta property="og:updated_time" content="2019-09-21T08:33:02.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现二叉树前序、中序、后序遍历">
-<meta name="twitter:description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义每次进入新节点(current)都进行以下操作： （下面的”操作”为输出或其他行为）  前序遍历：首先操作当前节点current，接着进入并操作current.left，而后返回到current，">
+<meta name="twitter:description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。 前序、中序、后序遍历的定义最简单的理解  前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右) 中序遍历：对于每个节点而言，先输出左子树，再输出自身，再输出右子树。（左中右） 后序遍历：对于每">
 <meta name="twitter:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/example.png">
   <link rel="canonical" href="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/">
 
@@ -242,6 +243,19 @@
               <time title="创建时间：2019-09-13 12:20:41" itemprop="dateCreated datePublished" datetime="2019-09-13T12:20:41+08:00">2019-09-13</time>
             </span>
           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             <span id="/2019/09/13/实现二叉树前序、中序、后序遍历/" class="post-meta-item leancloud_visitors" data-flag-title="实现二叉树前序、中序、后序遍历" title="阅读次数">
@@ -263,7 +277,16 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。</p>
-<h2 id="前序、中序、后序遍历的定义"><a href="#前序、中序、后序遍历的定义" class="headerlink" title="前序、中序、后序遍历的定义"></a>前序、中序、后序遍历的定义</h2><p>每次<em>进入</em>新节点(current)都进行以下操作：</p>
+<h2 id="前序、中序、后序遍历的定义"><a href="#前序、中序、后序遍历的定义" class="headerlink" title="前序、中序、后序遍历的定义"></a>前序、中序、后序遍历的定义</h2><p>最简单的理解</p>
+<ol>
+<li>前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右)</li>
+<li>中序遍历：对于每个节点而言，先输出左子树，再输出自身，再输出右子树。（左中右）</li>
+<li>后序遍历：对于每个节点而言，先输出右子树，再输出左子树，再输出自身。（右左中）</li>
+</ol>
+<a id="more"></a>
+
+<p>我们深入剖析一下这里面到底发生了什么。</p>
+<p>每次<strong>进入</strong>新节点(current)都进行以下操作：</p>
 <p><em>（下面的”操作”为输出或其他行为）</em></p>
 <ul>
 <li><p>前序遍历：首先操作当前节点current，接着进入并操作current.left，而后返回到current，再进入并操作current.right，最后返回current。</p>
@@ -290,7 +313,32 @@
 <blockquote>
 <p>此处仅是一个很简单的例子，读者可自行画一个大一点的树进行观察练习。</p>
 </blockquote>
-<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><p>因为递归版本比较简单，所以此处仅提供前序遍历的递归版本。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">preOrderRecur</span>(<span class="params">Node head</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="comment">//先打印自身</span></span><br><span class="line">        System.<span class="keyword">out</span>.println(head.<span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">//再打印左子树</span></span><br><span class="line">        preOrderRecur(head.left);</span><br><span class="line">        <span class="comment">//再打印右子树</span></span><br><span class="line">        preOrderRecur(head.right);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><ol>
+<li><p>准备一个栈并让根节点入栈。</p>
+</li>
+<li><p>把栈顶输出作为current，并输出，然年压入current的左节点，最后压入current的右节点。(因为栈的性质后进先出)。</p>
+</li>
+</ol>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="literal">void</span> preOrderUnRecur(Node current) &#123;</span><br><span class="line">        <span class="comment">//为什么不用队列？</span></span><br><span class="line">        <span class="comment">//因为队列是按顺序一直往下，树本身就是往下的且不能回头，</span></span><br><span class="line">        <span class="comment">// 但你要遍历所有节点必须要能返回上一层，所以我们用栈。</span></span><br><span class="line">        <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">Stack</span>&lt;Node&gt; <span class="built_in">stack</span> = <span class="literal">new</span> <span class="built_in">Stack</span>&lt;&gt;();</span><br><span class="line">            <span class="built_in">stack</span>.push(current);</span><br><span class="line">            <span class="keyword">while</span>(!<span class="built_in">stack</span>.isEmpty()) &#123;</span><br><span class="line">                current = <span class="built_in">stack</span>.pop();</span><br><span class="line">                System.out.println(current.value);</span><br><span class="line">                <span class="comment">//栈顶优先是当前节点的右节点(后进先出)</span></span><br><span class="line">                <span class="keyword">if</span>(current.right != <span class="built_in">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">stack</span>.push(current.right);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(current.left != <span class="built_in">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">stack</span>.push(current.left);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="中序遍历："><a href="#中序遍历：" class="headerlink" title="中序遍历："></a>中序遍历：</h3><ol>
+<li>若当前current不为null，则current入栈,然后向左节点推进(current = current.left)。直到current为null。</li>
+<li>若当前current为null，而栈中仍有值，则pop一个输出，并让其右节点作为current，回到1。</li>
+<li>直到current为null，栈也为空即结束。</li>
+</ol>
+<img src="/2019/09/13/实现二叉树前序、中序、后序遍历/inOrderUnrecur.png">
+<blockquote>
+<p>建议兄弟萌把整个流程走一遍，这样就有感觉了。</p>
+</blockquote>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="literal">void</span> inOrderUnRecur(Node current) &#123;</span><br><span class="line">        <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">            <span class="built_in">Stack</span>&lt;Node&gt; <span class="built_in">stack</span> = <span class="literal">new</span> <span class="built_in">Stack</span>&lt;&gt;();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(!<span class="built_in">stack</span>.isEmpty() || current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">stack</span>.push(current);</span><br><span class="line">                    current = current.left;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    current = <span class="built_in">stack</span>.peek().right;</span><br><span class="line">                    System.out.println(<span class="built_in">stack</span>.pop());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>后序遍历很有意思，他和前序遍历十分相像。</p>
+<p>前序遍历的顺序是<strong>中左右</strong>，而后序遍历为<strong>左右中</strong>。</p>
+<p>回头看一下前序遍历，我们可以把左右的顺序调节一下，变成中右左，再把它倒序，就是我们要的左右中了。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> posOrderUnRecur1(Node current) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(current != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">            Stack&lt;Node&gt; stack1 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">            Stack&lt;Node&gt; stack2 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">            stack1.<span class="keyword">push</span>(current);</span><br><span class="line">            <span class="keyword">while</span>(!stack1.isEmpty()) &#123;</span><br><span class="line">                current = stack1.<span class="keyword">pop</span>();</span><br><span class="line">                stack2.<span class="keyword">push</span>(current);</span><br><span class="line">                <span class="keyword">if</span>(current.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    stack1.<span class="keyword">push</span>(current);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(current.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    stack1.<span class="keyword">push</span>(current);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(!stack2.isEmpty()) &#123;</span><br><span class="line">                System.out.<span class="keyword">println</span>(stack2.<span class="keyword">pop</span>());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -375,7 +423,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,7 +482,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前序、中序、后序遍历的定义"><span class="nav-number">2.</span> <span class="nav-text">前序、中序、后序遍历的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归版本"><span class="nav-number">3.</span> <span class="nav-text">递归版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归版本"><span class="nav-number">4.</span> <span class="nav-text">非递归版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">5.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前序、中序、后序遍历的定义"><span class="nav-number">2.</span> <span class="nav-text">前序、中序、后序遍历的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归版本"><span class="nav-number">3.</span> <span class="nav-text">递归版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归版本"><span class="nav-number">4.</span> <span class="nav-text">非递归版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先序遍历"><span class="nav-number">4.1.</span> <span class="nav-text">先序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历："><span class="nav-number">4.2.</span> <span class="nav-text">中序遍历：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历"><span class="nav-number">4.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li></ol></div>
             
 
           </div>

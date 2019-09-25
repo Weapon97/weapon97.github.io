@@ -65,7 +65,7 @@
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/relation.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/key.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/key_example.png">
-<meta property="og:updated_time" content="2019-09-16T06:45:48.017Z">
+<meta property="og:updated_time" content="2019-09-17T10:44:53.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库原理笔记">
 <meta name="twitter:description" content="施工中。待补充有TODO字眼,记得c+f去补充 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短应用开发时间 数据独立性(物理数据独立性/逻辑数据独立性) 数据完整性和安全性 并发访问和鲁棒性">
@@ -327,12 +327,10 @@
 <blockquote>
 <p>关系r是：D<sub>1</sub>xD<sub>2</sub>…xD<sub>n</sub>的子集。(笛卡尔积的子集)</p>
 </blockquote>
-<p>因此关系是一组n元组,如下图所示</p>
-{% asset_img relation.png %}
-
-
+<p>因此关系是一组n元组。</p>
+{% asset_img relation.png %}(不知道为什么这里插不了图。。TODO)
 <hr>
-<p>关系的每个属性都有一个名称</p>
+<p>关系(表)的每个属性都有一个名称</p>
 <ul>
 <li>域：属性的取值范围（集合），null包括在每个域中</li>
 </ul>
@@ -365,11 +363,11 @@
 <hr>
 <h3 id="码、键-主键、外键"><a href="#码、键-主键、外键" class="headerlink" title="码、键(主键、外键)"></a>码、键(主键、外键)</h3><ul>
 <li>使K是R(属性的集合)的子集 k&sube;R</li>
-<li>如果K值能在一个关系(表中)中唯一地标志一个元组(一行)，则K是R的<em>超码</em>。<ul>
-<li>例，{instructor-ID, instructor-name}和{instructor-ID}都是instructor的超码/超键</li>
+<li>如果K值能在一个关系(表中)中唯一地标志一个元组(一行)，则K是R的<strong>超码</strong>。<ul>
+<li>例，{instructor-ID, instructor-name}和{instructor-ID}都是instructor的超码/超键）</li>
 </ul>
 </li>
-<li>如K是最小超码，则K为候选码<ul>
+<li>如K是<strong>最小超码</strong>(最少属性那个超码)，则K为<strong>候选码</strong><ul>
 <li>例，上面的{instructor-ID}就是候选码，他是超码而且是最小的</li>
 </ul>
 </li>
@@ -380,9 +378,10 @@
 </ul>
 <p>外键</p>
 <ul>
-<li>假设存在关系r和s：r(<u>A</u>,<em>B</em>,C),s(*<u>B</u><em>,D),则在关系r上的属性B称作参照s的</em>外码(外键)*，</li>
+<li>假设存在关系r和s：r(<u>A</u>,<strong>B</strong>,C),s(<strong><u>B</u></strong>,D),则在关系r上的属性B称作参照s的 外码(外键)* ，</li>
 </ul>
-<p>r也称为外码依赖的参照关系，s叫做外码被参照关系</p>
+<p>r也称为外码依赖的参照关系，s叫做外码被参照关系。</p>
+<p>讲人话就是：r的B字段要按照s的B字段来定制，s的B就称作为外键。</p>
 <ul>
 <li>instructor(<u>ID</u>,name,dept_name.salary) -参照关系</li>
 <li>department(dept_name,building,buget) - 被参照关系</li>
@@ -393,6 +392,9 @@
 <img src="/2019/09/06/数据库原理笔记/key.png">
 
 <img src="/2019/09/06/数据库原理笔记/key_example.png">
+
+
+<h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><p>谓词：形容客体的性质，在此处也可以是条件</p>
 
     </div>
 
@@ -478,7 +480,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -537,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：概述数据库"><span class="nav-number">1.</span> <span class="nav-text">第一章：概述数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据抽象"><span class="nav-number">1.1.</span> <span class="nav-text">数据抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型-data-model"><span class="nav-number">1.2.</span> <span class="nav-text">数据模型(data model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例与模式"><span class="nav-number">1.3.</span> <span class="nav-text">实例与模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模式-schema-与数据模型-model-与数据抽象的关系"><span class="nav-number">1.4.</span> <span class="nav-text">数据模式(schema)与数据模型(model)与数据抽象的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-关系模型（relation-model）"><span class="nav-number">2.</span> <span class="nav-text">第二章 关系模型（relation model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.1.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码、键-主键、外键"><span class="nav-number">2.2.</span> <span class="nav-text">码、键(主键、外键)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：概述数据库"><span class="nav-number">1.</span> <span class="nav-text">第一章：概述数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据抽象"><span class="nav-number">1.1.</span> <span class="nav-text">数据抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型-data-model"><span class="nav-number">1.2.</span> <span class="nav-text">数据模型(data model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例与模式"><span class="nav-number">1.3.</span> <span class="nav-text">实例与模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模式-schema-与数据模型-model-与数据抽象的关系"><span class="nav-number">1.4.</span> <span class="nav-text">数据模式(schema)与数据模型(model)与数据抽象的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-关系模型（relation-model）"><span class="nav-number">2.</span> <span class="nav-text">第二章 关系模型（relation model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.1.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码、键-主键、外键"><span class="nav-number">2.2.</span> <span class="nav-text">码、键(主键、外键)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系代数"><span class="nav-number">2.3.</span> <span class="nav-text">关系代数</span></a></li></ol></li></ol></div>
             
 
           </div>
