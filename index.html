@@ -201,6 +201,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/26/序列化二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/26/序列化二叉树/" class="post-title-link" itemprop="url">序列化二叉树</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 15:47:30" itemprop="dateCreated datePublished" datetime="2019-09-26T15:47:30+08:00">2019-09-26</time>
+            </span>
+          
+
+          
+            <span id="/2019/09/26/序列化二叉树/" class="post-meta-item leancloud_visitors" data-flag-title="序列化二叉树" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h1 id="序列化简介"><a href="#序列化简介" class="headerlink" title="序列化简介"></a>序列化简介</h1><p>在程序运行的过程中，所有对象的状态（属性）都是存在内存中的，一旦程序结束，内存都会被释放，这时我们对象的信息都没了，</p>
+<p>如果我们的程序每次执行都会改变变量，如第一次a = 1,，下一次可能是a = 2。一直下去，我们想要保存每一次执行a的信息,为了解决这个问题，<strong>序列化</strong>出现了。</p>
+<ul>
+<li>序列化可以帮助我们把内存中的对象的信息，保存在硬盘上。</li>
+<li>与序列化相反的是反序列化，很容易猜到，反序列化就是把硬盘上的信息，写入内存中。</li>
+</ul>
+<p>了解了序列化与反序列化的概念，下面我们来试试看二叉树的序列化吧。</p>
+<h1 id="二叉树的序列化"><a href="#二叉树的序列化" class="headerlink" title="二叉树的序列化"></a>二叉树的序列化</h1><p>二叉树的<strong>序列化</strong>是指：把一棵二叉树按照某种遍历方式的结果以某种格式保存为字符串。</p>
+<p>二叉树的<strong>反序列化</strong>是指：根据某种遍历顺序得到的序列化字符串结果str，重构二叉树</p>
+<blockquote>
+<p>二叉树有四种基本的遍历方式，前序、中序、后序以及层序遍历。（不晓得的兄弟萌可以看以前的博客）</p>
+</blockquote>
+<p>我们需要先约定好保存的格式，这里给定一个树及其遍历顺序如下：</p>
+<img src="/2019/09/26/序列化二叉树/example.png">
+
+<p>保存的格式如下：</p>
+<ul>
+<li>前序遍历的保存格式<ul>
+<li>1-2-4-#-#-5-#-#-3-6-#-#-7-#-#-</li>
+</ul>
+</li>
+<li>中序遍历的保存格式<ul>
+<li>#-4-#-2-#-5-#-1-#-6-#-3-#-7-#-</li>
+</ul>
+</li>
+<li>后序遍历的保存格式<ul>
+<li>#-#-4-#-#-5-2-#-#-6-#-#-7-3-1-</li>
+</ul>
+</li>
+<li>层序遍历的保存格式<ul>
+<li>1-2-3-4-5-6-7-#-#-#-#-#-#-#-#-</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其中-代表下一个节点,#代表节点为空(Null)</p>
+</blockquote>
+<p>其实序列化二叉树的代码和对应的遍历二叉树的十分相似，只是把它存为字符串并返回罢了。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里序列化的过程和常规的遍历过程十分相似，因此这里就不阐述了，兄弟萌可以顺便复习以下前中后序遍历。<br>因为之前的文章没写层序遍历，所以这次补充以下。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>前序遍历版</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> serialByPreOrder(Node head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"#-"</span>;</span><br><span class="line">        <span class="keyword">String</span> res = head.value + <span class="string">"-"</span>;</span><br><span class="line">        res = res + serialByPreOrder(head.left);</span><br><span class="line">        res = res + serialByPreOrder(head.right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反序列化：前序遍历的形式</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconByPreString(<span class="keyword">String</span> preStr) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">String</span>[] <span class="built_in">split</span> = preStr.<span class="built_in">split</span>(<span class="string">"-"</span>);</span><br><span class="line">        <span class="comment">//这里我们使用队列，兄弟萌可以试下改用数组来写。</span></span><br><span class="line">        Queue&lt;<span class="keyword">String</span>&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">split</span>.length; i++) &#123;</span><br><span class="line">            queue.offer(<span class="built_in">split</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> reconPreOrder(queue);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconPreOrder(Queue&lt;<span class="keyword">String</span>&gt; queue) &#123;</span><br><span class="line">        <span class="keyword">String</span> value = queue.poll();</span><br><span class="line">        <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Node head = <span class="keyword">new</span> Node(Integer.valueOf(value));</span><br><span class="line">        head.left = reconPreOrder(queue);</span><br><span class="line">        head.right = reconPreOrder(queue);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/22/二叉树的前序后继节点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -761,7 +886,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。除了前中后序遍历外各位也可以自行实现层序遍历（一层一层遍历）。</p>
 <h2 id="前序、中序、后序遍历的定义"><a href="#前序、中序、后序遍历的定义" class="headerlink" title="前序、中序、后序遍历的定义"></a>前序、中序、后序遍历的定义</h2><p>最简单的理解</p>
 <ol>
 <li>前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右)</li>
@@ -1095,104 +1220,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/06/数据库原理笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/06/数据库原理笔记/" class="post-title-link" itemprop="url">数据库原理笔记</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 21:32:02" itemprop="dateCreated datePublished" datetime="2019-09-06T21:32:02+08:00">2019-09-06</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/06/数据库原理笔记/" class="post-meta-item leancloud_visitors" data-flag-title="数据库原理笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><em>施工中。待补充有TODO字眼,记得c+f去补充</em></p>
-<h2 id="第一章：概述数据库"><a href="#第一章：概述数据库" class="headerlink" title="第一章：概述数据库"></a>第一章：概述数据库</h2><p>数据库：</p>
-<pre><code>长期存储在计算机内，有组织的可共享的数据集合。</code></pre><p>数据库管理系统：</p>
-<pre><code>数据库 + 一组用以访问、更新和管理这些数据的程序</code></pre><p>DBMS的特性：</p>
-<pre><code>数据访问的高效和可扩展性
-缩短应用开发时间
-数据独立性(物理数据独立性/逻辑数据独立性)
-数据完整性和安全性
-并发访问和鲁棒性</code></pre>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/06/数据库原理笔记/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1233,7 +1260,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

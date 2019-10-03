@@ -55,18 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="题目给定两个有序链表的头指针head1和head2，打印两个链表的公共部分。 思路这题目其实和快排的merge部分有点相似，忘了的兄弟萌可以去回忆一下。 因为两链表都是有序的，所以可以直接遍历对比。  两个链表比较两者当前的值，相等的话就输出并一起走一步，若是不同，较小者走一步，重复以上过程直到遍历完其中一个链表即可。">
+  <meta name="description" content="序列化简介在程序运行的过程中，所有对象的状态（属性）都是存在内存中的，一旦程序结束，内存都会被释放，这时我们对象的信息都没了， 如果我们的程序每次执行都会改变变量，如第一次a = 1,，下一次可能是a = 2。一直下去，我们想要保存每一次执行a的信息,为了解决这个问题，序列化出现了。  序列化可以帮助我们把内存中的对象的信息，保存在硬盘上。 与序列化相反的是反序列化，很容易猜到，反序列化就是把硬盘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打印两个有序链表的公共部分">
-<meta property="og:url" content="https://weapon97.github.io/2019/09/04/打印两个有序链表的公共部分/index.html">
+<meta property="og:title" content="序列化二叉树">
+<meta property="og:url" content="https://weapon97.github.io/2019/09/26/序列化二叉树/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="题目给定两个有序链表的头指针head1和head2，打印两个链表的公共部分。 思路这题目其实和快排的merge部分有点相似，忘了的兄弟萌可以去回忆一下。 因为两链表都是有序的，所以可以直接遍历对比。  两个链表比较两者当前的值，相等的话就输出并一起走一步，若是不同，较小者走一步，重复以上过程直到遍历完其中一个链表即可。">
+<meta property="og:description" content="序列化简介在程序运行的过程中，所有对象的状态（属性）都是存在内存中的，一旦程序结束，内存都会被释放，这时我们对象的信息都没了， 如果我们的程序每次执行都会改变变量，如第一次a = 1,，下一次可能是a = 2。一直下去，我们想要保存每一次执行a的信息,为了解决这个问题，序列化出现了。  序列化可以帮助我们把内存中的对象的信息，保存在硬盘上。 与序列化相反的是反序列化，很容易猜到，反序列化就是把硬盘">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T08:49:29.771Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/26/序列化二叉树/example.png">
+<meta property="og:updated_time" content="2019-10-02T14:03:24.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="打印两个有序链表的公共部分">
-<meta name="twitter:description" content="题目给定两个有序链表的头指针head1和head2，打印两个链表的公共部分。 思路这题目其实和快排的merge部分有点相似，忘了的兄弟萌可以去回忆一下。 因为两链表都是有序的，所以可以直接遍历对比。  两个链表比较两者当前的值，相等的话就输出并一起走一步，若是不同，较小者走一步，重复以上过程直到遍历完其中一个链表即可。">
-  <link rel="canonical" href="https://weapon97.github.io/2019/09/04/打印两个有序链表的公共部分/">
+<meta name="twitter:title" content="序列化二叉树">
+<meta name="twitter:description" content="序列化简介在程序运行的过程中，所有对象的状态（属性）都是存在内存中的，一旦程序结束，内存都会被释放，这时我们对象的信息都没了， 如果我们的程序每次执行都会改变变量，如第一次a = 1,，下一次可能是a = 2。一直下去，我们想要保存每一次执行a的信息,为了解决这个问题，序列化出现了。  序列化可以帮助我们把内存中的对象的信息，保存在硬盘上。 与序列化相反的是反序列化，很容易猜到，反序列化就是把硬盘">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/09/26/序列化二叉树/example.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/09/26/序列化二叉树/">
 
 
 <script id="page-configurations">
@@ -80,7 +82,7 @@
   };
 </script>
 
-  <title>打印两个有序链表的公共部分 | 彪码野郎</title>
+  <title>序列化二叉树 | 彪码野郎</title>
   
 
 
@@ -206,7 +208,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/04/打印两个有序链表的公共部分/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/26/序列化二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -220,7 +222,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">打印两个有序链表的公共部分
+          <h1 class="post-title" itemprop="name headline">序列化二叉树
 
             
           </h1>
@@ -237,12 +239,12 @@
                 
               
 
-              <time title="创建时间：2019-09-04 21:03:25" itemprop="dateCreated datePublished" datetime="2019-09-04T21:03:25+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-26 15:47:30" itemprop="dateCreated datePublished" datetime="2019-09-26T15:47:30+08:00">2019-09-26</time>
             </span>
           
 
           
-            <span id="/2019/09/04/打印两个有序链表的公共部分/" class="post-meta-item leancloud_visitors" data-flag-title="打印两个有序链表的公共部分" title="阅读次数">
+            <span id="/2019/09/26/序列化二叉树/" class="post-meta-item leancloud_visitors" data-flag-title="序列化二叉树" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -260,14 +262,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个有序链表的头指针head1和head2，打印两个链表的公共部分。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这题目其实和快排的merge部分有点相似，忘了的兄弟萌可以去回忆一下。</p>
-<p>因为两链表都是有序的，所以可以直接遍历对比。</p>
+        <h1 id="序列化简介"><a href="#序列化简介" class="headerlink" title="序列化简介"></a>序列化简介</h1><p>在程序运行的过程中，所有对象的状态（属性）都是存在内存中的，一旦程序结束，内存都会被释放，这时我们对象的信息都没了，</p>
+<p>如果我们的程序每次执行都会改变变量，如第一次a = 1,，下一次可能是a = 2。一直下去，我们想要保存每一次执行a的信息,为了解决这个问题，<strong>序列化</strong>出现了。</p>
+<ul>
+<li>序列化可以帮助我们把内存中的对象的信息，保存在硬盘上。</li>
+<li>与序列化相反的是反序列化，很容易猜到，反序列化就是把硬盘上的信息，写入内存中。</li>
+</ul>
+<p>了解了序列化与反序列化的概念，下面我们来试试看二叉树的序列化吧。</p>
+<h1 id="二叉树的序列化"><a href="#二叉树的序列化" class="headerlink" title="二叉树的序列化"></a>二叉树的序列化</h1><p>二叉树的<strong>序列化</strong>是指：把一棵二叉树按照某种遍历方式的结果以某种格式保存为字符串。</p>
+<p>二叉树的<strong>反序列化</strong>是指：根据某种遍历顺序得到的序列化字符串结果str，重构二叉树</p>
 <blockquote>
-<p>两个链表比较两者当前的值，相等的话就输出并一起走一步，若是不同，较小者走一步，重复以上过程直到遍历完其中一个链表即可。</p>
+<p>二叉树有四种基本的遍历方式，前序、中序、后序以及层序遍历。（不晓得的兄弟萌可以看以前的博客）</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCommonPart</span>(<span class="params">Node head1, Node head2</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(head1 != <span class="literal">null</span> &amp;&amp; head2 != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head1.<span class="keyword">value</span> &gt; head2.<span class="keyword">value</span>) &#123;</span><br><span class="line">                head2 = head2.next;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(head2.<span class="keyword">value</span> &gt; head1.<span class="keyword">value</span>) &#123;</span><br><span class="line">                head1 = head1.next;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.<span class="keyword">out</span>.println(head1.<span class="keyword">value</span>+<span class="string">" "</span>);</span><br><span class="line">                head1 = head1.next;</span><br><span class="line">                head2 = head2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>我们需要先约定好保存的格式，这里给定一个树及其遍历顺序如下：</p>
+<img src="/2019/09/26/序列化二叉树/example.png">
+
+<p>保存的格式如下：</p>
+<ul>
+<li>前序遍历的保存格式<ul>
+<li>1-2-4-#-#-5-#-#-3-6-#-#-7-#-#-</li>
+</ul>
+</li>
+<li>中序遍历的保存格式<ul>
+<li>#-4-#-2-#-5-#-1-#-6-#-3-#-7-#-</li>
+</ul>
+</li>
+<li>后序遍历的保存格式<ul>
+<li>#-#-4-#-#-5-2-#-#-6-#-#-7-3-1-</li>
+</ul>
+</li>
+<li>层序遍历的保存格式<ul>
+<li>1-2-3-4-5-6-7-#-#-#-#-#-#-#-#-</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其中-代表下一个节点,#代表节点为空(Null)</p>
+</blockquote>
+<p>其实序列化二叉树的代码和对应的遍历二叉树的十分相似，只是把它存为字符串并返回罢了。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里序列化的过程和常规的遍历过程十分相似，因此这里就不阐述了，兄弟萌可以顺便复习以下前中后序遍历。<br>因为之前的文章没写层序遍历，所以这次补充以下。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>前序遍历版</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> serialByPreOrder(Node head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"#-"</span>;</span><br><span class="line">        <span class="keyword">String</span> res = head.value + <span class="string">"-"</span>;</span><br><span class="line">        res = res + serialByPreOrder(head.left);</span><br><span class="line">        res = res + serialByPreOrder(head.right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反序列化：前序遍历的形式</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconByPreString(<span class="keyword">String</span> preStr) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">String</span>[] <span class="built_in">split</span> = preStr.<span class="built_in">split</span>(<span class="string">"-"</span>);</span><br><span class="line">        <span class="comment">//这里我们使用队列，兄弟萌可以试下改用数组来写。</span></span><br><span class="line">        Queue&lt;<span class="keyword">String</span>&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">split</span>.length; i++) &#123;</span><br><span class="line">            queue.offer(<span class="built_in">split</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> reconPreOrder(queue);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconPreOrder(Queue&lt;<span class="keyword">String</span>&gt; queue) &#123;</span><br><span class="line">        <span class="keyword">String</span> value = queue.poll();</span><br><span class="line">        <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Node head = <span class="keyword">new</span> Node(Integer.valueOf(value));</span><br><span class="line">        head.left = reconPreOrder(queue);</span><br><span class="line">        head.right = reconPreOrder(queue);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -283,8 +320,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/04/在行列都排好序的矩阵中找数/" rel="next" title="在行列都排好序的矩阵中找数">
-                  <i class="fa fa-chevron-left"></i> 在行列都排好序的矩阵中找数
+                <a href="/2019/09/22/二叉树的前序后继节点/" rel="next" title="二叉树的前序后继节点">
+                  <i class="fa fa-chevron-left"></i> 二叉树的前序后继节点
                 </a>
               
             </div>
@@ -292,10 +329,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/04/经典排序-归并排序/" rel="prev" title="经典排序:归并排序">
-                  经典排序:归并排序 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -411,7 +444,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化简介"><span class="nav-number">1.</span> <span class="nav-text">序列化简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的序列化"><span class="nav-number">2.</span> <span class="nav-text">二叉树的序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
