@@ -201,6 +201,101 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/10/08/判断是否为平衡二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/10/08/判断是否为平衡二叉树/" class="post-title-link" itemprop="url">判断是否为平衡二叉树</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-08 15:31:11" itemprop="dateCreated datePublished" datetime="2019-10-08T15:31:11+08:00">2019-10-08</time>
+            </span>
+          
+
+          
+            <span id="/2019/10/08/判断是否为平衡二叉树/" class="post-meta-item leancloud_visitors" data-flag-title="判断是否为平衡二叉树" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目-平衡二叉树"><a href="#题目-平衡二叉树" class="headerlink" title="题目 平衡二叉树"></a>题目 平衡二叉树</h1><p><strong>leetcode-110号题</strong>，给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+<ul>
+<li><p>平衡二叉树的定义：</p>
+<blockquote>
+<p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1</p>
+</blockquote></li></ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/08/判断是否为平衡二叉树/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/26/序列化二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,9 +390,10 @@
 <p>其中-代表下一个节点,#代表节点为空(Null)</p>
 </blockquote>
 <p>其实序列化二叉树的代码和对应的遍历二叉树的十分相似，只是把它存为字符串并返回罢了。</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里序列化的过程和常规的遍历过程十分相似，因此这里就不阐述了，兄弟萌可以顺便复习以下前中后序遍历。<br>因为之前的文章没写层序遍历，所以这次补充以下。</p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>前序遍历版</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> serialByPreOrder(Node head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"#-"</span>;</span><br><span class="line">        <span class="keyword">String</span> res = head.value + <span class="string">"-"</span>;</span><br><span class="line">        res = res + serialByPreOrder(head.left);</span><br><span class="line">        res = res + serialByPreOrder(head.right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反序列化：前序遍历的形式</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconByPreString(<span class="keyword">String</span> preStr) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">String</span>[] <span class="built_in">split</span> = preStr.<span class="built_in">split</span>(<span class="string">"-"</span>);</span><br><span class="line">        <span class="comment">//这里我们使用队列，兄弟萌可以试下改用数组来写。</span></span><br><span class="line">        Queue&lt;<span class="keyword">String</span>&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">split</span>.length; i++) &#123;</span><br><span class="line">            queue.offer(<span class="built_in">split</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> reconPreOrder(queue);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Node reconPreOrder(Queue&lt;<span class="keyword">String</span>&gt; queue) &#123;</span><br><span class="line">        <span class="keyword">String</span> value = queue.poll();</span><br><span class="line">        <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Node head = <span class="keyword">new</span> Node(Integer.valueOf(value));</span><br><span class="line">        head.left = reconPreOrder(queue);</span><br><span class="line">        head.right = reconPreOrder(queue);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里序列化的过程和常规的遍历过程十分相似，因此这里就不阐述了，兄弟萌可以顺便复习以下前中后序遍历。下面我们提供前序遍历和层序遍历的序列化和反序列化。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="前序遍历版"><a href="#前序遍历版" class="headerlink" title="前序遍历版"></a>前序遍历版</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> serialByPreOrder(Node head) &#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"#-"</span>;</span><br><span class="line">    <span class="keyword">String</span> res = head.value + <span class="string">"-"</span>;</span><br><span class="line">    res = res + serialByPreOrder(head.left);</span><br><span class="line">    res = res + serialByPreOrder(head.right);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Node reconByPreString(<span class="keyword">String</span> preStr) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">String</span>[] <span class="built_in">split</span> = preStr.<span class="built_in">split</span>(<span class="string">"-"</span>);</span><br><span class="line">    <span class="comment">//这里我们使用队列，兄弟萌可以试下改用数组来写。</span></span><br><span class="line">    Queue&lt;<span class="keyword">String</span>&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">split</span>.length; i++) &#123;</span><br><span class="line">        queue.offer(<span class="built_in">split</span>[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> reconPreOrder(queue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Node reconPreOrder(Queue&lt;<span class="keyword">String</span>&gt; queue) &#123;</span><br><span class="line">    <span class="keyword">String</span> value = queue.poll();</span><br><span class="line">    <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    Node head = <span class="keyword">new</span> Node(Integer.valueOf(value));</span><br><span class="line">    head.left = reconPreOrder(queue);</span><br><span class="line">    head.right = reconPreOrder(queue);</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="层序遍历版"><a href="#层序遍历版" class="headerlink" title="层序遍历版"></a>层序遍历版</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/序列化</span><br><span class="line">public static <span class="keyword">String</span> serialByLevelNoRec(<span class="keyword">Node</span> <span class="title">head</span>) &#123;</span><br><span class="line">    if(head == null) return <span class="string">"#-"</span>;</span><br><span class="line"></span><br><span class="line">    Queue<span class="tag">&lt;Node&gt;</span> queue = new LinkedList<span class="tag">&lt;&gt;</span>();</span><br><span class="line">    <span class="keyword">String</span> str = head.value + <span class="string">"-"</span>;</span><br><span class="line">    queue.offer(head);</span><br><span class="line">    while(!queue.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">Node</span> <span class="title">poll</span> = queue.poll();</span><br><span class="line">        if(poll.left != null) &#123;</span><br><span class="line">            str += poll.left.value + <span class="string">"-"</span>;</span><br><span class="line">            queue.offer(poll.left);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            str += <span class="string">"#-"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        if(poll.right != null) &#123;</span><br><span class="line">            str += poll.right.value + <span class="string">"-"</span>;</span><br><span class="line">            queue.offer(poll.right);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            str += <span class="string">"#-"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//--------------------------------------</span><br><span class="line"></span><br><span class="line">//反序列化</span><br><span class="line">public static <span class="keyword">Node</span> <span class="title">reconByLevel</span>(<span class="keyword">String</span> str) &#123;</span><br><span class="line">    <span class="keyword">String</span>[] split = str.split(<span class="string">"-"</span>);</span><br><span class="line">    int index = <span class="number">0</span>;</span><br><span class="line">    Queue<span class="tag">&lt;Node&gt;</span> queue = new LinkedList<span class="tag">&lt;&gt;</span>();</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">head</span> = generateNodeByString(split[index++]);</span><br><span class="line">    if(head != null) &#123;</span><br><span class="line">        queue.offer(head);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">node</span> = null;</span><br><span class="line">    while(!queue.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">node</span> <span class="title">= queue</span>.poll();</span><br><span class="line">        <span class="keyword">node</span>.<span class="title">left</span> = generateNodeByString(split[index++]);</span><br><span class="line">        <span class="keyword">node</span>.<span class="title">right</span> = generateNodeByString(split[index++]);</span><br><span class="line">        if(<span class="keyword">node</span>.<span class="title">left</span> != null) &#123;</span><br><span class="line">            queue.offer(<span class="keyword">node</span>.<span class="title">left</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        if(<span class="keyword">node</span>.<span class="title">right</span> != null) &#123;</span><br><span class="line">            queue.offer(<span class="keyword">node</span>.<span class="title">right</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//辅助方法</span><br><span class="line">public static <span class="keyword">Node</span> <span class="title">generateNodeByString</span>(<span class="keyword">String</span> val) &#123;</span><br><span class="line">    if (val.equals(<span class="string">"#"</span>)) &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">    return new <span class="keyword">Node</span><span class="title">(Integer</span>.valueOf(val));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
           
@@ -1121,105 +1217,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/07/荷兰国旗问题-单链表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Weapon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="彪码野郎">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/07/荷兰国旗问题-单链表/" class="post-title-link" itemprop="url">荷兰国旗问题(单链表)</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-07 17:07:49" itemprop="dateCreated datePublished" datetime="2019-09-07T17:07:49+08:00">2019-09-07</time>
-            </span>
-          
-
-          
-            <span id="/2019/09/07/荷兰国旗问题-单链表/" class="post-meta-item leancloud_visitors" data-flag-title="荷兰国旗问题(单链表)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>将单向链表按某值划分为左边小、中间相等、右边大的形式</p>
-<p>例子：</p>
-<blockquote>
-<p>9-&gt;0-&gt;4-&gt;5-&gt;1,pivot=3,调整后为1-&gt;0-&gt;4-&gt;9-&gt;5</p>
-</blockquote>
-<p>进阶：在原问题的基础上再增加两个要求，左中右三部分都要稳定性，要求时间复杂度为O(N),额外空间复杂度为O(1)。</p>
-<p>例子：</p>
-<blockquote>
-<p>9-&gt;0-&gt;4-&gt;5-&gt;1,pivot=3,调整后为<br>0-&gt;1-&gt;9-&gt;5-&gt;4</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/07/荷兰国旗问题-单链表/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1260,7 +1257,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

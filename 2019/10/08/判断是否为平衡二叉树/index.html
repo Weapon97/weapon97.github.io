@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="前言因为某作业要求，要写html。而我对float流一窍不通…所以学习一下flex布局。 Flex布局简介Flex是Flexible Box的缩写，也就是“弹性布局”，用于盒装模型。任意的容器都可以指定为Flex布局。 123.box &amp;#123;    display:flex;&amp;#125;  注：Flex布局需要IE10或以上 值得注意的是设置为Flex布局后，子元素得到float、clear">
+  <meta name="description" content="题目 平衡二叉树leetcode-110号题，给定一个二叉树，判断它是否是高度平衡的二叉树。  平衡二叉树的定义：  一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex布局快速入门">
-<meta property="og:url" content="https://weapon97.github.io/2019/09/21/flex布局快速入门/index.html">
+<meta property="og:title" content="判断是否为平衡二叉树">
+<meta property="og:url" content="https://weapon97.github.io/2019/10/08/判断是否为平衡二叉树/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="前言因为某作业要求，要写html。而我对float流一窍不通…所以学习一下flex布局。 Flex布局简介Flex是Flexible Box的缩写，也就是“弹性布局”，用于盒装模型。任意的容器都可以指定为Flex布局。 123.box &amp;#123;    display:flex;&amp;#125;  注：Flex布局需要IE10或以上 值得注意的是设置为Flex布局后，子元素得到float、clear">
+<meta property="og:description" content="题目 平衡二叉树leetcode-110号题，给定一个二叉树，判断它是否是高度平衡的二叉树。  平衡二叉树的定义：  一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T15:46:34.166Z">
+<meta property="og:updated_time" content="2019-10-08T09:22:03.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex布局快速入门">
-<meta name="twitter:description" content="前言因为某作业要求，要写html。而我对float流一窍不通…所以学习一下flex布局。 Flex布局简介Flex是Flexible Box的缩写，也就是“弹性布局”，用于盒装模型。任意的容器都可以指定为Flex布局。 123.box &amp;#123;    display:flex;&amp;#125;  注：Flex布局需要IE10或以上 值得注意的是设置为Flex布局后，子元素得到float、clear">
-  <link rel="canonical" href="https://weapon97.github.io/2019/09/21/flex布局快速入门/">
+<meta name="twitter:title" content="判断是否为平衡二叉树">
+<meta name="twitter:description" content="题目 平衡二叉树leetcode-110号题，给定一个二叉树，判断它是否是高度平衡的二叉树。  平衡二叉树的定义：  一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1">
+  <link rel="canonical" href="https://weapon97.github.io/2019/10/08/判断是否为平衡二叉树/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>flex布局快速入门 | 彪码野郎</title>
+  <title>判断是否为平衡二叉树 | 彪码野郎</title>
   
 
 
@@ -206,7 +206,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/09/21/flex布局快速入门/">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/10/08/判断是否为平衡二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weapon">
@@ -220,7 +220,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">flex布局快速入门
+          <h1 class="post-title" itemprop="name headline">判断是否为平衡二叉树
 
             
           </h1>
@@ -237,12 +237,12 @@
                 
               
 
-              <time title="创建时间：2019-09-21 18:56:04" itemprop="dateCreated datePublished" datetime="2019-09-21T18:56:04+08:00">2019-09-21</time>
+              <time title="创建时间：2019-10-08 15:31:11" itemprop="dateCreated datePublished" datetime="2019-10-08T15:31:11+08:00">2019-10-08</time>
             </span>
           
 
           
-            <span id="/2019/09/21/flex布局快速入门/" class="post-meta-item leancloud_visitors" data-flag-title="flex布局快速入门" title="阅读次数">
+            <span id="/2019/10/08/判断是否为平衡二叉树/" class="post-meta-item leancloud_visitors" data-flag-title="判断是否为平衡二叉树" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -260,23 +260,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为某作业要求，要写html。而我对float流一窍不通…所以学习一下flex布局。</p>
-<h2 id="Flex布局简介"><a href="#Flex布局简介" class="headerlink" title="Flex布局简介"></a>Flex布局简介</h2><p>Flex是Flexible Box的缩写，也就是“弹性布局”，用于盒装模型。任意的容器都可以指定为Flex布局。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>注：Flex布局需要IE10或以上</em></p>
-<p>值得注意的是设置为Flex布局后，子元素得到<strong>float</strong>、<strong>clear</strong>和<strong>vertical-align</strong>均会失效。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>采用Flex布局的元素，称作Flex<strong>容器</strong>（Flex container）,而容器的子元素成为Flex<strong>项目</strong>（Flex Item）。</p>
+        <h1 id="题目-平衡二叉树"><a href="#题目-平衡二叉树" class="headerlink" title="题目 平衡二叉树"></a>题目 平衡二叉树</h1><p><strong>leetcode-110号题</strong>，给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
 <ul>
-<li><strong>项目</strong>在默认情况下是没有间距的</li>
-</ul>
-<ul>
-<li><strong>容器</strong>中默认存在两根轴，水平的是主轴(main axis)和垂直的交叉轴(cross axis)。</li>
-</ul>
+<li><p>平衡二叉树的定义：</p>
 <blockquote>
-<p>本文参考了<strong>阮一峰的flex教程</strong>。</p>
+<p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1</p>
 </blockquote>
+<a id="more"></a>
+</li>
+<li><p>例子：</p>
+<ul>
+<li>给定二叉树 [3,9,20,null,null,15,7]</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">3</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">9</span>  <span class="number">20</span></span><br><span class="line">  /  \</span><br><span class="line"> <span class="number">15</span>   <span class="number">7</span></span><br></pre></td></tr></table></figure>
 
+<p>返回true。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这种类型的题目还是比较好做的，我们有许多种类的二叉树，大多都是<strong>当前树与其子树之间有着某种关系</strong>。只要把节点进行比对就可以判断了。回忆一下，我们利用了<strong>递归</strong>实现了<strong>二叉树的前中后序遍历</strong>。</p>
+<ul>
+<li>在递归的过程中，每一个节点都会经过3次。这样就可以对比父子节点了</li>
+</ul>
+<p>下面来分析一下，以X节点为头的树要判断是否为平衡二叉树需要如下：</p>
+<ol>
+<li><p>其左子树是否平衡</p>
+</li>
+<li><p>其右子树是否平衡</p>
+</li>
+<li><p>左子树的高和右子树的高（判断高度差）</p>
+</li>
+</ol>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">boolean</span> isBalance(Node head) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * getLevel(Node head, int level, boolean[] res)</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 此处的level每一层都会加一，那我从左子树到右子树递归的话，右子树的层数就会有错（当X的左子树level为3，那么X的右节点的level就是4了，正常来说是2）,所以用基本类型作为形参</span></span><br><span class="line"><span class="comment">         * 但res是每一个子树都要公用的，所以用引用类型来修改同一块内存</span></span><br><span class="line"><span class="comment">        **/</span></span><br><span class="line">        <span class="built_in">boolean</span>[] res = &#123;<span class="keyword">true</span>&#125;;</span><br><span class="line">        getLevel(head, <span class="number">1</span>,res);</span><br><span class="line">        <span class="keyword">return</span> res[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> getLevel(Node head, <span class="built_in">int</span> level, <span class="built_in">boolean</span>[] res) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>) <span class="keyword">return</span> level;</span><br><span class="line">        <span class="comment">//1. 其左子树是否平衡</span></span><br><span class="line">        <span class="built_in">int</span> left = getLevel(head.left, level + <span class="number">1</span>, res);</span><br><span class="line">        <span class="comment">//如果有其中一个不平衡了，随便返回啦，gkd</span></span><br><span class="line">        <span class="keyword">if</span>(!res[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> level;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//2. 其右子树是否平衡</span></span><br><span class="line">        <span class="built_in">int</span> right = getLevel(head.right,level + <span class="number">1</span>, res);</span><br><span class="line">        <span class="keyword">if</span>(!res[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> level;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3. 比较左子树的高和右子树的高（判断高度差）</span></span><br><span class="line">        <span class="keyword">if</span>(Math.<span class="built_in">abs</span>(left - right) &gt; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            res[<span class="number">0</span>] = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//正常情况下取左右子树层数较高者</span></span><br><span class="line">        <span class="keyword">return</span> Math.<span class="built_in">max</span>(left, right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        Node head = <span class="keyword">new</span> Node(<span class="number">1</span>);</span><br><span class="line">        head.left = <span class="keyword">new</span> Node(<span class="number">2</span>);</span><br><span class="line">        head.left.left = <span class="keyword">new</span> Node(<span class="number">3</span>);</span><br><span class="line">        head.left.left.left = <span class="keyword">new</span> Node(<span class="number">4</span>);</span><br><span class="line">        head.right = <span class="keyword">new</span> Node(<span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">        System.out.<span class="built_in">println</span>(isBalance(head));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -292,8 +306,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/21/Spring之aop/" rel="next" title="Spring之aop">
-                  <i class="fa fa-chevron-left"></i> Spring之aop
+                <a href="/2019/09/26/序列化二叉树/" rel="next" title="序列化二叉树">
+                  <i class="fa fa-chevron-left"></i> 序列化二叉树
                 </a>
               
             </div>
@@ -301,10 +315,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/22/二叉树的前序后继节点/" rel="prev" title="二叉树的前序后继节点">
-                  二叉树的前序后继节点 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -420,7 +430,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局简介"><span class="nav-number">1.1.</span> <span class="nav-text">Flex布局简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">基本概念</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目-平衡二叉树"><span class="nav-number">1.</span> <span class="nav-text">题目 平衡二叉树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
