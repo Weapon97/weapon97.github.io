@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jojo-32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-jojo-16.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="TODO：待补充中断和陷入 第一章·引论操作系统的主要作用及目标操作系统是配置在计算机硬件上的第一层软件，并作为计算机系统资源的管理者。  主要作用是管理设备，并提高设备利用率和系统的吞吐量，而后为用户和应用程序提供一个简单的接口，便于用户使用。  主要目标是：方便性、有效性、可扩充性和开放性。  方便性：OS提供各种命令（高级语言）方便用户操作计算机。 有效性：提高系统资源（cpu或io设备）的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统第一章·引论">
+<meta property="og:url" content="https://weapon97.github.io/2019/10/26/操作系统第一章/index.html">
+<meta property="og:site_name" content="彪码野郎">
+<meta property="og:description" content="TODO：待补充中断和陷入 第一章·引论操作系统的主要作用及目标操作系统是配置在计算机硬件上的第一层软件，并作为计算机系统资源的管理者。  主要作用是管理设备，并提高设备利用率和系统的吞吐量，而后为用户和应用程序提供一个简单的接口，便于用户使用。  主要目标是：方便性、有效性、可扩充性和开放性。  方便性：OS提供各种命令（高级语言）方便用户操作计算机。 有效性：提高系统资源（cpu或io设备）的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://weapon97.github.io/2019/10/26/操作系统第一章/os.png">
+<meta property="og:updated_time" content="2019-10-29T15:17:16.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统第一章·引论">
+<meta name="twitter:description" content="TODO：待补充中断和陷入 第一章·引论操作系统的主要作用及目标操作系统是配置在计算机硬件上的第一层软件，并作为计算机系统资源的管理者。  主要作用是管理设备，并提高设备利用率和系统的吞吐量，而后为用户和应用程序提供一个简单的接口，便于用户使用。  主要目标是：方便性、有效性、可扩充性和开放性。  方便性：OS提供各种命令（高级语言）方便用户操作计算机。 有效性：提高系统资源（cpu或io设备）的">
+<meta name="twitter:image" content="https://weapon97.github.io/2019/10/26/操作系统第一章/os.png">
+  <link rel="canonical" href="https://weapon97.github.io/2019/10/26/操作系统第一章/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>操作系统第一章·引论 | 彪码野郎</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">彪码野郎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weapon97.github.io/2019/10/26/操作系统第一章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weapon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="彪码野郎">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">操作系统第一章·引论
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-26 10:41:46" itemprop="dateCreated datePublished" datetime="2019-10-26T10:41:46+08:00">2019-10-26</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/操作系统/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/10/26/操作系统第一章/" class="post-meta-item leancloud_visitors" data-flag-title="操作系统第一章·引论" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>TODO：待补充中断和陷入</p>
+<h1 id="第一章·引论"><a href="#第一章·引论" class="headerlink" title="第一章·引论"></a>第一章·引论</h1><h2 id="操作系统的主要作用及目标"><a href="#操作系统的主要作用及目标" class="headerlink" title="操作系统的主要作用及目标"></a>操作系统的主要作用及目标</h2><p>操作系统是配置在计算机硬件上的第一层软件，并作为计算机系统资源的管理者。</p>
+<ul>
+<li><p><strong>主要作用</strong>是管理设备，并提高设备利用率和系统的吞吐量，而后为用户和应用程序提供一个简单的接口，便于用户使用。</p>
+</li>
+<li><p><strong>主要目标</strong>是：方便性、有效性、可扩充性和开放性。</p>
+<ul>
+<li>方便性：OS提供各种命令（高级语言）方便用户操作计算机。</li>
+<li>有效性：提高系统资源（cpu或io设备）的利用率，提高系统的吞吐量。</li>
+<li>可扩充性：结构可修改，便于增加新的功能和模块。</li>
+<li>开放性：系统能准许世界标准规范，兼容硬件和软件。<a id="more"></a>
+<h2 id="操作系统的发展过程"><a href="#操作系统的发展过程" class="headerlink" title="操作系统的发展过程"></a>操作系统的发展过程</h2></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>人工操作方式（无OS）<ul>
+<li>程序员将已穿孔的纸带(或卡片)装入输入机，然后启动输入机把纸袋上的程序和数据输入计算机内存</li>
+<li><strong>脱机</strong>：程序和数据的输入和输出都在脱离主机的情况下进行的</li>
+</ul>
+</li>
+<li>单道批处理系统<ul>
+<li>把一批作业脱机输入到磁带上，再通过监督程序，使整批作业一个接一个连续处理。</li>
+<li>缺点：在io的时候cpu就停了，这就造成资源浪费了。</li>
+</ul>
+</li>
+<li>多道批处理系统<ul>
+<li>把用户提交的作业放在外存中，并排成一个“后备队列”。按一定算法选出若干个作业调入内存，使它们共享系统资源（a在用io，b就取用cpu）。</li>
+<li>缺点：无<strong>交互性</strong>，用户一旦提交作业就失去控制</li>
+</ul>
+</li>
+<li>分时系统<ul>
+<li>分时(Time Sharing)是把计算机的系统资源(尤其是CPU时间)进行时间上的分割，每个时间段称为一个<strong>时间片(Time Slice)</strong>，每个用户依次轮流使用时间片。</li>
+<li>特征：具有交互性、多用户同时性和独立性的特征</li>
+</ul>
+</li>
+<li>实时系统<ul>
+<li>能够及时响应外部事件的请求，在规定的时间内完成对该时间的处理，并控制所有实时任务协调一致地运行。</li>
+<li>特征：实时性、可靠性</li>
+</ul>
+</li>
+</ol>
+<h2 id="操作系统的基本特征"><a href="#操作系统的基本特征" class="headerlink" title="操作系统的基本特征"></a>操作系统的基本特征</h2><ul>
+<li><p>并发性</p>
+<ul>
+<li>并发性是指同一时间间隔内发生两个或多个事件。</li>
+<li>并行性是指同一时刻内发生两个或多个事件。</li>
+</ul>
+</li>
+<li><p>共享性</p>
+<ul>
+<li>系统中的资源可供内存中多个并发执行的进程（任务）共同使用。</li>
+<li>不可共享的资源称为临界资源或独占资源（如物理设备）。</li>
+</ul>
+</li>
+<li><p>虚拟性</p>
+<ul>
+<li>通过某种技术将物理实体编程若干个逻辑上的对应物。</li>
+</ul>
+</li>
+<li><p>异步性</p>
+<ul>
+<li>进程是以人们不可预知的速度向前推进的</li>
+<li>a要打印机，若b在用打印机，就要等b用完，a才能用，若b没用，a就可以直接用。<h2 id="操作系统的主要功能"><a href="#操作系统的主要功能" class="headerlink" title="操作系统的主要功能"></a>操作系统的主要功能</h2></li>
+</ul>
+</li>
+<li><p>处理机管理功能(PCB表)</p>
+<ul>
+<li>创建和撤销进程，对诸进程的运行进行协调，实现进程之间的通信，并按一定算法把cpu分配给进程。</li>
+</ul>
+</li>
+<li><p>存储器管理功能（内存分配表）</p>
+<ul>
+<li>对内存分配和回收、内存保护、地址映射和内存扩充等功能。</li>
+</ul>
+</li>
+<li><p>设备管理功能（设备表）</p>
+<ul>
+<li>缓冲管理、设备分配和设备处理以及虚拟设备等功能。</li>
+</ul>
+</li>
+<li><p>文件管理功能（文件分配表、用户权限分配表）</p>
+<ul>
+<li>对文件存储空间的管理、目录管理、文件的读/写管理以及文件的共享和保护功能。</li>
+</ul>
+</li>
+<li><p>提供用户接口功能</p>
+<ul>
+<li>用户接口: 用户通过该接口可以向作业发出命令控制作业。</li>
+<li>程序接口：是用户程序取得操作系统服务的唯一途径，它是由一组系统调用组成的。</li>
+</ul>
+</li>
+</ul>
+<h2 id="OS结构设计"><a href="#OS结构设计" class="headerlink" title="OS结构设计"></a>OS结构设计</h2><h3 id="传统操作系统结构"><a href="#传统操作系统结构" class="headerlink" title="传统操作系统结构"></a>传统操作系统结构</h3><ol>
+<li>无结构操作系统</li>
+<li>模块化结构OS（）</li>
+<li>分层式结构OS（自顶向下）</li>
+</ol>
+<h3 id="微内核大致定义"><a href="#微内核大致定义" class="headerlink" title="微内核大致定义"></a>微内核大致定义</h3><p>大多采用C/S模式的微内核结构，将OS划分为两个部分：<strong>微内核和多个服务器</strong></p>
+<ul>
+<li>微内核：是能实现现代OS最基本核心功能的小型内核，它并不是完整的OS，只是将OS中最基本的部分放入微内核。<ul>
+<li>包括①与硬件处理紧密相关的部分；②一些基本功能；③客户和服务器之间的通信</li>
+</ul>
+</li>
+</ul>
+<img src="/2019/10/26/操作系统第一章/os.png">
+
+<h3 id="应用“机制与策略分离”原理"><a href="#应用“机制与策略分离”原理" class="headerlink" title="应用“机制与策略分离”原理"></a>应用“机制与策略分离”原理</h3><ul>
+<li>机制：实现某一功能的具体执行机构</li>
+<li>策略：在机制的基础上借助某些算法实现功能的优化。</li>
+</ul>
+<h3 id="微内核的基本功能"><a href="#微内核的基本功能" class="headerlink" title="微内核的基本功能"></a>微内核的基本功能</h3><p>微内核的功能按照<strong>机制与策略分离的原理</strong>进行放置</p>
+<ol>
+<li>进程(线程)管理：<ul>
+<li>进程调度功能是输入机制应放入微内核中。而进程优先级那些属于策略，应放入微内核外的进程管理服务器中。</li>
+</ul>
+</li>
+<li>低级存储器管理<ul>
+<li>实现用户空间的逻辑地址到物理地址转换的页表机制和地址变换机制（寄存器），所以放入微内核，而页面置换算法和内存分配和回收等策略应放入服务器中实现。</li>
+</ul>
+</li>
+<li>中断和陷入处理<ul>
+<li>微内核主要是捕获所发生的中断和陷入事件，并进行相应的前期处理。</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/25/理解并查集/" rel="next" title="理解并查集（仍有问题）">
+                  <i class="fa fa-chevron-left"></i> 理解并查集（仍有问题）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/27/岛的问题/" rel="prev" title="岛的问题">
+                  岛的问题 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="Weapon">
+  <p class="site-author-name" itemprop="name">Weapon</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章·引论"><span class="nav-number">1.</span> <span class="nav-text">第一章·引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的主要作用及目标"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统的主要作用及目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的发展过程"><span class="nav-number">1.2.</span> <span class="nav-text">操作系统的发展过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的基本特征"><span class="nav-number">1.3.</span> <span class="nav-text">操作系统的基本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的主要功能"><span class="nav-number">1.4.</span> <span class="nav-text">操作系统的主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS结构设计"><span class="nav-number">1.5.</span> <span class="nav-text">OS结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统操作系统结构"><span class="nav-number">1.5.1.</span> <span class="nav-text">传统操作系统结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微内核大致定义"><span class="nav-number">1.5.2.</span> <span class="nav-text">微内核大致定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用“机制与策略分离”原理"><span class="nav-number">1.5.3.</span> <span class="nav-text">应用“机制与策略分离”原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微内核的基本功能"><span class="nav-number">1.5.4.</span> <span class="nav-text">微内核的基本功能</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weapon</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=VVGO15ghlOeN9BAPuduVn990-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'VVGO15ghlOeN9BAPuduVn990-gzGzoHsz',
+            'X-LC-Key': 'VpDSWuIjeD6ejvuEGncVBuH5',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

@@ -68,7 +68,8 @@
 <meta property="og:image" content="https://weapon97.github.io/2019/08/31/堆及堆排序/入树和入堆.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/31/堆及堆排序/flow.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/08/31/堆及堆排序/heapify.png">
-<meta property="og:updated_time" content="2019-08-24T08:43:59.104Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/08/31/堆及堆排序/heapSort.png">
+<meta property="og:updated_time" content="2019-11-21T14:24:06.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆及堆排序">
 <meta name="twitter:description" content="堆与堆排序注意阅读本文前应掌握树的基本知识 堆的定义堆也称之为优先队列，根据其优先级细分为各种堆(队列)常见的堆有两种，一种叫大根堆，一种叫小根堆">
@@ -342,7 +343,10 @@
 <hr>
 <h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>有了前面对堆的了解我们就可以开始学习堆排序了</p>
 <p>堆排序的思路：</p>
-<pre><code>把数放进大根堆中，然后把堆顶和堆底的值进行交换（这样最大值在最后辣）。这时候heapSize就有用了，heapSize-1 这样最后一个元素就不会在动了，然后用heapify把堆调整回一个大根堆，继续进行上面的操作直至heapSize == 0 即可。</code></pre>{% asset_img heapSort.png heapSort %}
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把数放进大根堆中，然后把堆顶和堆底的值进行交换（这样最大值在最后辣）。这时候<span class="built-in">heapSize</span>就有用了，<span class="built-in">heapSize</span><span class="number">-1</span> 这样最后一个元素就不会在动了，然后用heapify把堆调整回一个大根堆，继续进行上面的操作直至<span class="built-in">heapSize</span> == <span class="number">0</span> 即可。</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/31/堆及堆排序/heapSort.png">
+
 
 <blockquote>
 <p>heapSort过程图解</p>
@@ -448,7 +452,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -469,7 +473,13 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -486,7 +496,9 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
         
       </div>

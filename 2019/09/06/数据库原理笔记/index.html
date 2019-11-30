@@ -55,20 +55,23 @@
   };
 </script>
 
-  <meta name="description" content="施工中。待补充有TODO字眼,记得c+f去补充 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短应用开发时间 数据独立性(物理数据独立性/逻辑数据独立性) 数据完整性和安全性 并发访问和鲁棒性">
+  <meta name="description" content="施工中。待补充有TODO字眼,记得c+f去补充//如需要复习sql语句，请直接搜索表的定义 -本文的DDL文件和数据文件均可在https://www.db-book.com/db7/index.html下载。 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库原理笔记">
 <meta property="og:url" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/index.html">
 <meta property="og:site_name" content="彪码野郎">
-<meta property="og:description" content="施工中。待补充有TODO字眼,记得c+f去补充 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短应用开发时间 数据独立性(物理数据独立性/逻辑数据独立性) 数据完整性和安全性 并发访问和鲁棒性">
+<meta property="og:description" content="施工中。待补充有TODO字眼,记得c+f去补充//如需要复习sql语句，请直接搜索表的定义 -本文的DDL文件和数据文件均可在https://www.db-book.com/db7/index.html下载。 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/relation.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/key.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/key_example.png">
-<meta property="og:updated_time" content="2019-10-05T15:08:27.780Z">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/groupBy1.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/groupBy1.png">
+<meta property="og:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/view_update_condition.png">
+<meta property="og:updated_time" content="2019-11-06T08:51:58.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库原理笔记">
-<meta name="twitter:description" content="施工中。待补充有TODO字眼,记得c+f去补充 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短应用开发时间 数据独立性(物理数据独立性/逻辑数据独立性) 数据完整性和安全性 并发访问和鲁棒性">
+<meta name="twitter:description" content="施工中。待补充有TODO字眼,记得c+f去补充//如需要复习sql语句，请直接搜索表的定义 -本文的DDL文件和数据文件均可在https://www.db-book.com/db7/index.html下载。 第一章：概述数据库数据库： 长期存储在计算机内，有组织的可共享的数据集合。数据库管理系统： 数据库 + 一组用以访问、更新和管理这些数据的程序DBMS的特性： 数据访问的高效和可扩展性 缩短">
 <meta name="twitter:image" content="https://weapon97.github.io/2019/09/06/数据库原理笔记/relation.png">
   <link rel="canonical" href="https://weapon97.github.io/2019/09/06/数据库原理笔记/">
 
@@ -244,6 +247,19 @@
               <time title="创建时间：2019-09-06 21:32:02" itemprop="dateCreated datePublished" datetime="2019-09-06T21:32:02+08:00">2019-09-06</time>
             </span>
           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             <span id="/2019/09/06/数据库原理笔记/" class="post-meta-item leancloud_visitors" data-flag-title="数据库原理笔记" title="阅读次数">
@@ -264,7 +280,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>施工中。待补充有TODO字眼,记得c+f去补充</em></p>
+        <p><em>施工中。待补充有TODO字眼,记得c+f去补充</em><br>//如需要复习sql语句，请直接搜索表的定义</p>
+<p>-本文的DDL文件和数据文件均可在<a href="https://www.db-book.com/db7/index.html下载。" target="_blank" rel="noopener">https://www.db-book.com/db7/index.html下载。</a></p>
 <h2 id="第一章：概述数据库"><a href="#第一章：概述数据库" class="headerlink" title="第一章：概述数据库"></a>第一章：概述数据库</h2><p>数据库：</p>
 <pre><code>长期存储在计算机内，有组织的可共享的数据集合。</code></pre><p>数据库管理系统：</p>
 <pre><code>数据库 + 一组用以访问、更新和管理这些数据的程序</code></pre><p>DBMS的特性：</p>
@@ -396,9 +413,8 @@
 
 <h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><p>谓词：形容客体的性质，在此处也可以是条件</p>
 <p>此处略过。有兴趣的可以看书，我觉得这一部分可以归类的数学。</p>
-<h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="SQL概览"><a href="#SQL概览" class="headerlink" title="SQL概览"></a>SQL概览</h2><ul>
-<li><p>SQL语言有以下几个部分：</p>
-<ul>
+<h2 id="SQL概览"><a href="#SQL概览" class="headerlink" title="SQL概览"></a>SQL概览</h2><ul>
+<li>SQL语言有以下几个部分：<ul>
 <li>DDL（Data-definition Language）数据定义语言<ul>
 <li>create tabble,alter table, drop table</li>
 <li>create index,drop index</li>
@@ -417,8 +433,10 @@
 </li>
 </ul>
 </li>
-<li><p>SQL语言的基本类型(注意以下为标准SQL类型，具体类型和DBMS有关，不过大致相差无几)</p>
+</ul>
+<hr>
 <ul>
+<li>SQL语言的<strong>基本类型</strong>(注意以下为标准SQL类型，具体类型和DBMS有关，不过大致相差无几)<ul>
 <li>char(n)：固定长度的字符串，指定长度为n</li>
 <li>varchar(n)：可变长度的字符串，用户指定最大长度n</li>
 <li>int：整数类型，也可用全称integer</li>
@@ -433,7 +451,215 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li><p>根据DBMS的不同，各自的<strong>函数</strong>名也可能不同，请自行搜索，如子字符串、时间、长度等</p>
+</li>
+<li><p><strong>相同的函数</strong></p>
+<ul>
+<li>abs()(绝对值)</li>
+<li>exp()(指数)</li>
+<li>round()(四舍五入)</li>
+<li>…..</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><h3 id="基本模式定义（表的定义）"><a href="#基本模式定义（表的定义）" class="headerlink" title="基本模式定义（表的定义）"></a>基本模式定义（表的定义）</h3><p>新建一个表</p>
+<ul>
+<li>CREATE TABLE r<br><pre><code>(A&lt;sub&gt;1&lt;/sub&gt; D&lt;sub&gt;1&lt;/sub&gt;, A&lt;sub&gt;2&lt;/sub&gt; D&lt;sub&gt;2&lt;/sub&gt;&lt;br&gt; 
+  ...
+  &lt;完整性约束1&gt;,&lt;br&gt;
+  ...,
+  &lt;完整性约束k&gt;);</code></pre></li>
+</ul>
+<blockquote>
+<p>r是关系名，每个A是关系r模式中的一个属性名，D<sub>i</sub>是属性A<sub>i</sub>的域</p>
+</blockquote>
+<p>删除一个表</p>
+<ul>
+<li>DROP TABLE r;</li>
+</ul>
+<p>增加表中的属性(关系中所有元组在属性上的取值为null)</p>
+<ul>
+<li>ALTER TABLE r ADD A D</li>
+</ul>
+<p>删除表中的属性(此操作有许多DBMS不支持)</p>
+<ul>
+<li>ALTER TABLE r DROP A</li>
+</ul>
+<p>修改表中的属性</p>
+<ul>
+<li>ALTER TABLE instructor MODIFY (ID char(10));</li>
+</ul>
+<h3 id="完整性约束"><a href="#完整性约束" class="headerlink" title="完整性约束"></a>完整性约束</h3><p>SQL支持许多不同的完整性约束</p>
+<ul>
+<li><p>not nul， 该属性上不允许空值</p>
+</li>
+<li><p>primary key(A<sub>1</sub>…,A<sub>n</sub>),声明表示属性A<sub>1</sub>…,A<sub>n</sub>构成关系的主码（组合成一个）。主码属性必须非空且唯一，在SQL_92中无需指明not null，但在SQL_89中要指明</p>
+</li>
+<li><p>foreign key(A<sub>1</sub>…,A<sub>n</sub>) references s(A<sub>1</sub>…,A<sub>n</sub>),声明表示关系r中任意元组在属性上(A<sub>1</sub>…,A<sub>n</sub>)的取值必须对应s中某元组的主码属性上的取值</p>
+</li>
+<li><p>check (P), P是谓词条件</p>
+</li>
+</ul>
+<hr>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> instructor</span><br><span class="line">  (<span class="keyword">ID</span> <span class="built_in">char</span>(<span class="number">5</span>),</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">  dept_name <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">  salary <span class="built_in">numeric</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">  primary <span class="keyword">key</span> (<span class="keyword">ID</span>),</span><br><span class="line">  <span class="keyword">check</span> (salary &gt;= <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>salary可能为空吗?在sql server 2000中，是可以的，在check中只要不是false即可。</li>
+</ul>
+<h3 id="SELECT语法"><a href="#SELECT语法" class="headerlink" title="SELECT语法"></a>SELECT语法</h3><ul>
+<li><p>去除重复的元组（默认不去除为all）</p>
+<ul>
+<li>select <strong>distinct</strong> dept_name from instructor;</li>
+</ul>
+</li>
+<li><p>逻辑连词（and、or、not、between）和比较运算符(&gt;&lt;=)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//找出工资在9000美元和10000美元之间的教师名称</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> salary &lt;= <span class="number">10000</span> <span class="keyword">and</span> salary &gt;= <span class="number">9000</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重命名(old_name as new_name)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//<span class="keyword">select</span>改名</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">as</span> instructor_name, course_id <span class="keyword">from</span> instructor;</span><br><span class="line"></span><br><span class="line">//from改名</span><br><span class="line"><span class="keyword">select</span> T.name <span class="keyword">from</span> instorcor <span class="keyword">as</span> T;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串运算</p>
+<ul>
+<li>%：匹配任意字符串</li>
+<li>_: 匹配任意一个字符</li>
+<li>escape：定义转义字符</li>
+</ul>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找任意建筑名称中包含子串‘Waston’的所有系名</span></span><br><span class="line"><span class="keyword">select</span> dept_name <span class="keyword">from</span> department</span><br><span class="line"><span class="keyword">where</span> building like <span class="string">'%Waston%'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//转义字符的定义,这里匹配所有以"ab%cd"开头的字符串</span></span><br><span class="line">like <span class="string">'ab\%cd%'</span> escape <span class="string">'\'</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>除此之外还有其他函数,如提取子字符串、大小转换等，按需查看文档即可。</p>
+</blockquote>
+</li>
+<li><p>排列元组的的显示次序（order by）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//默认不加为升序asc，需要指定降序可加上desc，如下</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> salary <span class="keyword">desc</span>, <span class="keyword">name</span> <span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合运算(请查看具体DBMS的文档)</p>
+<ul>
+<li>SQL作用在关系上的union、intersect和except对应数学集合种的并、交、差运算（注：集合运算会自动去除重复，如想保留请在后面加all）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//找出2009年秋季开课，或者2010春季开课或两个学期都开课的所有课程</span><br><span class="line"></span><br><span class="line">(<span class="keyword">select</span> course_id <span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">where</span> semester = <span class="string">'Fall'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2009</span>) </span><br><span class="line"><span class="keyword">union</span> </span><br><span class="line">(<span class="keyword">select</span> course_id <span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">where</span> semester = <span class="string">'Spring'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2010</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基本聚集函数：输入一个为值的集合，返回单个值的函数</p>
+<ul>
+<li>平均值：avg（输入必须为数字集）</li>
+<li>最小值：min</li>
+<li>最大值：max</li>
+<li>总和：sum（输入必须为数字集）</li>
+<li>计数：count</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找出Computer Science系教师的平均工资,写as是因为返回值并没有名称</span></span><br><span class="line"><span class="function"><span class="keyword">select</span> <span class="title">avg</span>(<span class="params">salary</span>) <span class="keyword">as</span> avg_salary</span></span><br><span class="line"><span class="function"><span class="keyword">from</span> instructor</span></span><br><span class="line"><span class="function"><span class="keyword">where</span> dept_name</span> = <span class="string">'Comp. Sci'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分组聚集(group by)</p>
+<ul>
+<li>在group by子句种的所有属性上取值相同的元组将会被分到一个组中</li>
+<li>having子句和where类似，但其对<strong>分组</strong>限定条件，而不是对元组限定条件。having子句中的谓词条件在形成分组后才起作用，因此可以使用聚集函数。</li>
+</ul>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找出每个系的平均工资</span></span><br><span class="line"><span class="keyword">select</span> dept_name <span class="built_in">avg</span>(salary) as avg_salary</span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="built_in">group</span> <span class="keyword">by</span> dept_name;</span><br><span class="line"></span><br><span class="line">/*注意：任何没有出现在<span class="built_in">group</span> <span class="keyword">by</span>子句中的属性，如果出现在</span><br><span class="line"><span class="keyword">select</span>子句中的话，它只能出现在聚集函数内部，否则会报错。</span><br><span class="line">因为你都分组了，只能按组行动，不能单独行动*/</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/09/06/数据库原理笔记/groupBy1.png" title="分组">
+<blockquote>
+<p>分组</p>
+</blockquote>
+<img src="/2019/09/06/数据库原理笔记/groupBy1.png" title="结果">
+<blockquote>
+<p>结果</p>
+</blockquote>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找出教师平均工资超过42000美元的系</span></span><br><span class="line"><span class="keyword">select</span> dept_name <span class="built_in">avg</span>(salary) as avg_salary</span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="built_in">group</span> <span class="keyword">by</span> dept_name</span><br><span class="line">having <span class="built_in">avg</span>(salary) &gt; <span class="number">42000</span>;</span><br><span class="line"></span><br><span class="line">/*注意：与<span class="keyword">select</span>子句情况相似，任何出现在having子句中，但没有聚集的属性必须出现在<span class="built_in">group</span> <span class="keyword">by</span>子句中，否则会报错。</span><br><span class="line">因为having是对**分组**的限定条件，你不在<span class="built_in">group</span>里，不报你错，报谁的错。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空值null的说明</p>
+<ul>
+<li>null与运算符（&gt;=&lt;）比较都是null，如需判断属性是否为null应用is以及is not</li>
+<li>除count(*)外的所有聚集函数均忽略输入集合中的空值（count会记录含null的元组）</li>
+<li>子查询中的问题:</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span> </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="built_in">int</span> (<span class="keyword">select</span> user_id <span class="keyword">from</span> packages)</span><br><span class="line"></span><br><span class="line">//此时，若 packages中某一行的user_id为<span class="literal">null</span>，返回结果就是空的</span><br><span class="line">思考一下这里的发生了什么,假设我们的语句如下</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span></span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">这个语句会被转换为</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span></span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> != <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">id</span> != <span class="number">2</span> <span class="keyword">and</span> <span class="keyword">id</span> != <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*null和什么比较都是null所以 id != null也为null ，</span></span><br><span class="line"><span class="comment">而任意值和null进行and运算的结果都是null，所以上面返回的结果是null。*/</span></span><br><span class="line"></span><br><span class="line">我们把条件调换一下，结果就没问题了</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span> </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="keyword">select</span> user_id <span class="keyword">from</span> packages)</span><br><span class="line"></span><br><span class="line">例子如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span></span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">这条<span class="keyword">SQL</span>转换为:</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span></span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span> <span class="keyword">or</span> <span class="keyword">id</span> = <span class="number">2</span> <span class="keyword">or</span> <span class="keyword">id</span> = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">因为是<span class="keyword">or</span>连接条件，所以<span class="literal">null</span>没问题。</span><br></pre></td></tr></table></figure>
+
+<p>关于null的其他用法可以看这个博客：<a href="https://www.cnblogs.com/tv151579/p/8296540.html，写的挺好的。" target="_blank" rel="noopener">https://www.cnblogs.com/tv151579/p/8296540.html，写的挺好的。</a></p>
+</li>
+</ul>
+<hr>
+<h3 id="嵌套子查询"><a href="#嵌套子查询" class="headerlink" title="嵌套子查询"></a>嵌套子查询</h3><p>子查询嵌套在where子句中，通常用于以下几个方面：</p>
+<ul>
+<li><p>集合成员资格</p>
+<ul>
+<li>连接词<strong>in</strong>测试元组是否是集合中的成员，集合是由select子句产生的值组合构成的，对应由not in。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//找出在2009秋季和2010春季学期通识开课的所有课程</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> course_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">section</span></span><br><span class="line"><span class="keyword">where</span> semester = <span class="string">'Fall'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2009</span> <span class="keyword">and</span></span><br><span class="line">course_id <span class="keyword">in</span> (<span class="keyword">select</span> course_id</span><br><span class="line">              <span class="keyword">from</span> <span class="keyword">section</span></span><br><span class="line">              <span class="keyword">where</span> semester = <span class="string">'Spring'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2010</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合的比较</p>
+<ul>
+<li><strong>some</strong>表示在集合中的某些元素</li>
+<li><strong>all</strong>表示在集合中的所有元素</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//按要求找出所有教师姓名，要求他们的工资至少比Biology系某一个老师工资高。(some)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">where</span> salary &gt; <span class="keyword">some</span> (<span class="keyword">select</span> salary</span><br><span class="line">                     <span class="keyword">from</span> instructor</span><br><span class="line">                     <span class="keyword">where</span> dept_name = <span class="string">'Biology'</span>);</span><br><span class="line"></span><br><span class="line">//找出平均工资最高的系（all）</span><br><span class="line"><span class="keyword">select</span> dept_name</span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> dept_name</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">avg</span>(salary) &gt;= <span class="keyword">all</span> (<span class="keyword">select</span> <span class="keyword">avg</span>(salary)</span><br><span class="line">                            <span class="keyword">from</span> instructor</span><br><span class="line">                            <span class="keyword">group</span> <span class="keyword">by</span> dept_name);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空关系测试</p>
+<ul>
+<li><strong>exists</strong>可测试一个子查询的结果中是否存在元组，返回true/false,与之相应的是not exists。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//可以用not exists模拟集合的包含（超集）操作，</span><br><span class="line">//如“not exists (B except A)”,</span><br><span class="line">//B except A表示 B - A(差)，其差若不存在则表示关系A包含关系B。</span><br><span class="line"></span><br><span class="line">//找出在2009秋季和2010春季学期通识开课的所有课程，要求使用exists结构</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> course_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">as</span> S</span><br><span class="line"><span class="keyword">where</span> semester = <span class="string">'Fall'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2009</span> <span class="keyword">and</span></span><br><span class="line">  <span class="keyword">exists</span> (<span class="keyword">select</span> *</span><br><span class="line">          <span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">as</span> T</span><br><span class="line">          <span class="keyword">where</span> semester = <span class="string">'Spring'</span> <span class="keyword">and</span> <span class="keyword">year</span> = <span class="number">2010</span> <span class="keyword">and</span></span><br><span class="line">            S.course_id = T.course_id);</span><br><span class="line"></span><br><span class="line">//这里需要注意，在子查询中引用外部元组的变量时，都一条元组都要执行一次子查询，所以效率会比较低。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重复元组存在性测试</p>
+<ul>
+<li><strong>unique</strong>用于测试一个子查询的结果中是否存在重复元素，没有则返回true</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//注意：distince是去除重复的元组，而unique函数是检查一个子查询的结果中是否存在重复元素。（mysql似乎不支持unique函数），另外在约束条件中也有unique那个另讲。</span><br><span class="line"></span><br><span class="line">//找出所有在2009年最多开设一次的课程</span><br><span class="line"><span class="keyword">select</span> T.course_id</span><br><span class="line">  <span class="keyword">from</span> course <span class="keyword">as</span> T</span><br><span class="line">  <span class="keyword">where</span> <span class="keyword">unique</span> (<span class="keyword">select</span> R.course_id</span><br><span class="line">  <span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">as</span> R</span><br><span class="line">  <span class="keyword">where</span> T.course_id = R.course_id <span class="keyword">and</span></span><br><span class="line">  R.year = <span class="number">2009</span>);</span><br><span class="line"></span><br><span class="line">//还可以这么写</span><br><span class="line"><span class="keyword">select</span> course_id</span><br><span class="line"><span class="keyword">from</span> course <span class="keyword">as</span> C</span><br><span class="line"><span class="keyword">where</span> <span class="number">1</span>&gt;= <span class="keyword">all</span>(<span class="keyword">select</span> S.course_id </span><br><span class="line">        <span class="keyword">from</span> <span class="keyword">section</span> <span class="keyword">as</span> S </span><br><span class="line">        <span class="keyword">where</span> S.year = <span class="number">2009</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>from子句中的子查询(from后面的查询结果作为局部的视图)</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//找出所有系中工资总额最大的系</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(tot_salary)</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> dept_name, <span class="built_in">sum</span>(salary)</span><br><span class="line"><span class="keyword">from</span> instructor <span class="keyword">group</span> <span class="keyword">by</span> dept_name)</span><br><span class="line"><span class="keyword">as</span> dept_total(dept_name, tot_salary);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>with子句（用于连接Local View）</p>
+<ul>
+<li>提供定义临时关系（本地视图）的方法，该关系只在包含with子句的查询中生效</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//找出具有最大预算的系</span><br><span class="line"><span class="comment">/*定义临时关系*/</span></span><br><span class="line"><span class="keyword">with</span> max_budget(<span class="keyword">value</span>) <span class="keyword">as</span></span><br><span class="line">     (<span class="keyword">select</span> <span class="keyword">max</span>(budget)</span><br><span class="line">      <span class="keyword">from</span> department)</span><br><span class="line"><span class="comment">/*使用临时关系*/</span></span><br><span class="line"><span class="keyword">select</span> budget</span><br><span class="line"><span class="keyword">from</span> department, max_budget</span><br><span class="line"><span class="keyword">where</span> department.budget = max_budget.value;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul>
+<li><p>删除：这里我们只能删除整个元组，而不能只删除某些属性的值</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//r代表关系，p代表逻辑谓词</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> r</span><br><span class="line"><span class="built_in">where</span> p;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除工资低于大学平均工资的教师记录</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> instructor</span><br><span class="line"><span class="built_in">where</span> salary &lt; (<span class="keyword">select</span> <span class="built_in">avg</span> (salary)</span><br><span class="line">                <span class="keyword">from</span> instructor);</span><br><span class="line"><span class="comment">//除非子查询引用了外层的关系或变量，否则子查询只执行一次</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入：向关系中插入元组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//以下两种插入形式，[]为可选项</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> r[(c1,c2,...)]</span><br><span class="line">  <span class="keyword">values</span>(e1,e2);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> r[(c1,c2,...)]</span><br><span class="line">  <span class="keyword">select</span> e1,e2,... <span class="keyword">from</span> ...;</span><br><span class="line"></span><br><span class="line">//例子</span><br><span class="line">inert into course</span><br><span class="line">  <span class="keyword">values</span>(<span class="string">'CS-437'</span>,<span class="string">'DatabaseSystems'</span>,<span class="string">'Comp'</span>,<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新:改变整个元组的部分属性值</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//&lt;&gt;表示必定要。</span><br><span class="line"><span class="keyword">update</span> r</span><br><span class="line"><span class="keyword">set</span> &lt;c1=e1,[c2=e2,...]&gt;</span><br><span class="line">[<span class="keyword">where</span> &lt;condition&gt;]</span><br><span class="line"></span><br><span class="line">//为解决<span class="keyword">update</span>次序引发的问题，sql提供了<span class="keyword">case</span>结构</span><br><span class="line"><span class="keyword">case</span></span><br><span class="line"><span class="keyword">when</span> pred1 <span class="keyword">then</span> result1</span><br><span class="line"><span class="keyword">when</span> pred2 <span class="keyword">then</span> result2</span><br><span class="line">...</span><br><span class="line"><span class="keyword">when</span> predn <span class="keyword">then</span> resultn</span><br><span class="line"><span class="keyword">else</span> result0</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">//例子给工资超过<span class="number">100000</span>的教师涨<span class="number">3</span>%工资，其余教师涨<span class="number">5</span>%</span><br><span class="line"><span class="keyword">update</span> instructor</span><br><span class="line"><span class="keyword">set</span> salary = <span class="keyword">case</span></span><br><span class="line">          <span class="keyword">when</span> salary&lt;= <span class="number">10000</span> <span class="keyword">then</span> salary * <span class="number">1.05</span></span><br><span class="line">          <span class="keyword">else</span> salary * <span class="number">1.03</span></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>SQL语句执行顺序：<ul>
+<li>from - where - group(聚合aggregate) - having - select - order by</li>
+</ul>
+</li>
+</ul>
+<h2 id="视图-View"><a href="#视图-View" class="headerlink" title="视图(View)"></a>视图(View)</h2><h3 id="视图的定义"><a href="#视图的定义" class="headerlink" title="视图的定义"></a>视图的定义</h3><ul>
+<li>在某些情况下，让用户看到整个逻辑模型是不合适的，此时需要向用户隐藏特定的数据，所以引出了视图机制。</li>
+<li>定义：通过查询定义出对用户可见的“虚关系”称为view。它在概念上包含查询结构，但并不预先计算并存储结果，仅是存储其定义本身。</li>
+</ul>
+<h3 id="视图的使用"><a href="#视图的使用" class="headerlink" title="视图的使用"></a>视图的使用</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//创建视图</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v_name <span class="keyword">as</span> &lt;<span class="keyword">query</span> expression&gt;;</span><br><span class="line"></span><br><span class="line">//删除视图</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> v_name;</span><br><span class="line"></span><br><span class="line">//例子：列出每个系中所有教师的工资总和</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> departments_total_salary(dept_name, total_salary) <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> dept_name, <span class="keyword">sum</span>(salary)</span><br><span class="line"><span class="keyword">from</span> instructor</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> dept_name;</span><br><span class="line"></span><br><span class="line">//使用视图physics_fall_2009，找出所有在09年秋季学期在Waston大楼开设的Physics课程</span><br><span class="line"><span class="keyword">select</span> course_id, room_number</span><br><span class="line"><span class="keyword">from</span> physics_fall_2009</span><br><span class="line"><span class="keyword">where</span> building = <span class="string">'Waston'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="视图的更新"><a href="#视图的更新" class="headerlink" title="视图的更新"></a>视图的更新</h3><ul>
+<li><p>视图可以和常规的关系一样进行更新（增删改），但<strong>这更新是对于源关系的</strong>，例子如下。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*假定faculty是由instructor关系查询出来的的视图。*/</span></span><br><span class="line"></span><br><span class="line">//下面的语句会报错，因为此插入表示instructor关系的插入，必须给出salary。</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> faculty <span class="keyword">values</span>(<span class="string">'30765'</span>,<span class="string">'Green'</span>,<span class="string">'Music'</span>);</span><br><span class="line"></span><br><span class="line">//解决方案：改<span class="keyword">values</span>(<span class="string">'30765'</span>,<span class="string">'Green'</span>,<span class="string">'Music'</span>,<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>鉴于以上原因，下面给出视图可更新的条件</p>
+</li>
+</ul>
+<img src="/2019/09/06/数据库原理笔记/view_update_condition.png">
+
+<ul>
+<li>SQL-99对视图的更新有更复杂的规则，故不讨论。</li>
+<li>视图还有物化视图，即存储结果的视图，有兴趣的兄弟萌可以自行查阅。</li>
+</ul>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>索引是一种<strong>数据结构</strong>，把只与查询相关的数据整合为数据结构（B+树）,当用户查询时，先在索引查找到对应记录并通过其指针查找物理表中的记录。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//创建索引</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> &lt;i_name&gt; <span class="keyword">on</span> &lt;t_name&gt; (&lt;<span class="keyword">attribute</span>-lisst&gt;);</span><br><span class="line">//例子</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> ins_index <span class="keyword">on</span> instrcutor(<span class="keyword">ID</span>);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> ins_ID_name_index <span class="keyword">on</span> instructor(<span class="keyword">ID</span>,<span class="keyword">name</span>);</span><br><span class="line"></span><br><span class="line">//若某属性是key的话，可创建唯一索引</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span> uni_stu_index <span class="keyword">on</span> student(<span class="keyword">ID</span>);</span><br><span class="line"></span><br><span class="line">//删除所有</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> &lt;i_name&gt;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -518,7 +744,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,7 +765,13 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -556,7 +788,9 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -577,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：概述数据库"><span class="nav-number">1.</span> <span class="nav-text">第一章：概述数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据抽象"><span class="nav-number">1.1.</span> <span class="nav-text">数据抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型-data-model"><span class="nav-number">1.2.</span> <span class="nav-text">数据模型(data model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例与模式"><span class="nav-number">1.3.</span> <span class="nav-text">实例与模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模式-schema-与数据模型-model-与数据抽象的关系"><span class="nav-number">1.4.</span> <span class="nav-text">数据模式(schema)与数据模型(model)与数据抽象的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-关系模型（relation-model）"><span class="nav-number">2.</span> <span class="nav-text">第二章 关系模型（relation model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.1.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码、键-主键、外键"><span class="nav-number">2.2.</span> <span class="nav-text">码、键(主键、外键)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系代数"><span class="nav-number">2.3.</span> <span class="nav-text">关系代数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL语句"><span class="nav-number"></span> <span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL概览"><span class="nav-number">1.</span> <span class="nav-text">SQL概览</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：概述数据库"><span class="nav-number">1.</span> <span class="nav-text">第一章：概述数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据抽象"><span class="nav-number">1.1.</span> <span class="nav-text">数据抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型-data-model"><span class="nav-number">1.2.</span> <span class="nav-text">数据模型(data model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例与模式"><span class="nav-number">1.3.</span> <span class="nav-text">实例与模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模式-schema-与数据模型-model-与数据抽象的关系"><span class="nav-number">1.4.</span> <span class="nav-text">数据模式(schema)与数据模型(model)与数据抽象的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-关系模型（relation-model）"><span class="nav-number">2.</span> <span class="nav-text">第二章 关系模型（relation model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.1.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码、键-主键、外键"><span class="nav-number">2.2.</span> <span class="nav-text">码、键(主键、外键)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系代数"><span class="nav-number">2.3.</span> <span class="nav-text">关系代数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL概览"><span class="nav-number">3.</span> <span class="nav-text">SQL概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL语句"><span class="nav-number">4.</span> <span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本模式定义（表的定义）"><span class="nav-number">4.1.</span> <span class="nav-text">基本模式定义（表的定义）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整性约束"><span class="nav-number">4.2.</span> <span class="nav-text">完整性约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SELECT语法"><span class="nav-number">4.3.</span> <span class="nav-text">SELECT语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套子查询"><span class="nav-number">4.4.</span> <span class="nav-text">嵌套子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据库"><span class="nav-number">4.5.</span> <span class="nav-text">修改数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-View"><span class="nav-number">5.</span> <span class="nav-text">视图(View)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的定义"><span class="nav-number">5.1.</span> <span class="nav-text">视图的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的使用"><span class="nav-number">5.2.</span> <span class="nav-text">视图的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的更新"><span class="nav-number">5.3.</span> <span class="nav-text">视图的更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">5.4.</span> <span class="nav-text">索引</span></a></li></ol></li></ol></div>
             
 
           </div>

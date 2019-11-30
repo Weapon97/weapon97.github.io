@@ -68,7 +68,7 @@
 <meta property="og:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/step2.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/step3.png">
 <meta property="og:image" content="https://weapon97.github.io/2019/09/13/实现二叉树前序、中序、后序遍历/step4.png">
-<meta property="og:updated_time" content="2019-10-03T10:21:58.413Z">
+<meta property="og:updated_time" content="2019-10-09T14:46:01.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现二叉树前序、中序、后序遍历">
 <meta name="twitter:description" content="前言遍历二叉树是二叉树知识中的基础，有递归版本和非递归版本，这里递归的版本比较容易，所以我们只说前序遍历的递归形式，剩下的中序和后序由读者自行实现。本文着重写非递归形式的遍历。除了前中后序遍历外各位也可以自行实现层序遍历（一层一层遍历）。 前序、中序、后序遍历的定义最简单的理解  前序遍历：对于每个节点而言，先输出自身，再输出左子树，最后输出右子树的。(中左右) 中序遍历：对于每个节点而言，先输出">
@@ -337,7 +337,7 @@
 <blockquote>
 <p>建议兄弟萌把整个流程走一遍，这样就有感觉了。</p>
 </blockquote>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="literal">void</span> inOrderUnRecur(Node current) &#123;</span><br><span class="line">        <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">            <span class="built_in">Stack</span>&lt;Node&gt; <span class="built_in">stack</span> = <span class="literal">new</span> <span class="built_in">Stack</span>&lt;&gt;();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(!<span class="built_in">stack</span>.isEmpty() || current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">stack</span>.push(current);</span><br><span class="line">                    current = current.left;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    current = <span class="built_in">stack</span>.peek().right;</span><br><span class="line">                    System.out.println(<span class="built_in">stack</span>.pop());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="literal">void</span> inOrderUnRecur(Node current) &#123;</span><br><span class="line">        <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">            <span class="built_in">Stack</span>&lt;Node&gt; <span class="built_in">stack</span> = <span class="literal">new</span> <span class="built_in">Stack</span>&lt;&gt;();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(!<span class="built_in">stack</span>.isEmpty() || current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(current != <span class="built_in">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">stack</span>.push(current);</span><br><span class="line">                    current = current.left;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//左节点为空,就右节点，pop到没有位置</span></span><br><span class="line">                    current = <span class="built_in">stack</span>.peek().right;</span><br><span class="line">                    System.out.println(<span class="built_in">stack</span>.pop());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>后序遍历很有意思，他和前序遍历十分相像。</p>
 <p>前序遍历的顺序是<strong>中左右</strong>，而后序遍历为<strong>左右中</strong>。</p>
@@ -464,7 +464,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,7 +485,13 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -502,7 +508,9 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
